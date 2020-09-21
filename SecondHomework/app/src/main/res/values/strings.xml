@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SecondHomework</string>
+    <string name="avtivity1">Activity1</string>
+    <string name="avtivity2">Activity2</string>
+    <string name="avtivity3">Activity3</string>
+    <string name="avtivity4">Activity4</string>
+    <string name="button1">Button1</string>
+    <string name="button2">Button2</string>
+    <string name="button3">Button3</string>
+    <string name="button4">Button4</string>
+</resources>

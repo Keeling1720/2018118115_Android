@@ -21,20 +21,20 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.secondhomework.MainActivity4"
-            android:label="@string/activity4"
+            android:label="@string/avtivity4"
             android:launchMode="singleInstance" >
         </activity>
         <activity
             android:name="com.example.secondhomework.MainActivity3"
-            android:label="@string/activity3"
+            android:label="@string/avtivity3"
             android:launchMode="singleTask" />
         <activity
             android:name="com.example.secondhomework.MainActivity2"
-            android:label="@string/activity2"
+            android:label="@string/avtivity2"
             android:launchMode="singleTop" />
         <activity
             android:name="com.example.secondhomework.MainActivity"
-            android:label="@string/activity1"
+            android:label="@string/avtivity1"
             android:launchMode="standard" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

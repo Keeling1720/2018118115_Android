@@ -29,35 +29,35 @@
 20        android:theme="@style/AppTheme" >
 20-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:11:9-40
 21        <activity
-21-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:13:9-16:20
+21-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:13:9-17:20
 22            android:name="com.example.secondhomework.MainActivity4"
 22-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:13:19-48
-23            android:label="@string/activity4"
+23            android:label="@string/avtivity4"
 23-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:14:13-46
 24            android:launchMode="singleInstance" >
 24-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:15:13-48
 25        </activity>
 26        <activity
-26-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:19:9-21:46
+26-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:20:9-22:46
 27            android:name="com.example.secondhomework.MainActivity3"
-27-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:19:19-48
-28            android:label="@string/activity3"
-28-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:20:13-46
+27-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:20:19-48
+28            android:label="@string/avtivity3"
+28-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:21:13-46
 29            android:launchMode="singleTask" />
-29-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:21:13-44
+29-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:22:13-44
 30        <activity
-30-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:24:9-26:45
+30-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:25:9-27:45
 31            android:name="com.example.secondhomework.MainActivity2"
-31-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:24:19-48
-32            android:label="@string/activity2"
-32-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:25:13-46
+31-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:25:19-48
+32            android:label="@string/avtivity2"
+32-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:26:13-46
 33            android:launchMode="singleTop" />
-33-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:26:13-43
+33-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:27:13-43
 34        <activity
-34-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:28:9-36:20
+34-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:29:9-36:20
 35            android:name="com.example.secondhomework.MainActivity"
-35-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:29:13-41
-36            android:label="@string/activity1"
+35-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:29:19-47
+36            android:label="@string/avtivity1"
 36-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:30:13-46
 37            android:launchMode="standard" >
 37-->D:\2018118115_Android\SecondHomework\app\src\main\AndroidManifest.xml:31:13-42

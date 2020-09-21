@@ -560,11 +560,11 @@
     <string name="abc_shareactionprovider_share_with">Share with</string>
     <string name="abc_shareactionprovider_share_with_application">Share with <ns1:g example="Mail" id="application_name">%s</ns1:g></string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
-    <string name="activity1">Activity1</string>
-    <string name="activity2">Activity2</string>
-    <string name="activity3">Activity3</string>
-    <string name="activity4">Activity4</string>
     <string name="app_name">SecondHomework</string>
+    <string name="avtivity1">Activity1</string>
+    <string name="avtivity2">Activity2</string>
+    <string name="avtivity3">Activity3</string>
+    <string name="avtivity4">Activity4</string>
     <string name="button1">Button1</string>
     <string name="button2">Button2</string>
     <string name="button3">Button3</string>
