@@ -43,11 +43,19 @@ android:maxLines="2"用来限定文本的最大行数。超过最大行后文本
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/img_1"/>
-
+<!--
+所有控件都有一个android:visibility属性
+该属性有三个值，
+visible 可见（默认）
+invisible 不可见（会占据自己的位置）
+gone 不可见（且不占地方）
+-->
     <ProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:max="100"
         />
 
 </LinearLayout>
