@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-//做个小测试
+//做个小测试2
 public class MainActivity extends AppCompatActivity {
 
     @Override

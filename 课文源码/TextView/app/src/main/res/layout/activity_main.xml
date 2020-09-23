@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<!--
+gravity=center是居中属性
+textSize=24sp是字体大小属性
+textColor=#00ff00是字体颜色属性
+-->
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textColor="#00ff00"
+        android:text="@string/text"/>
+<!--
+android:textAllCaps="false"取消字体自动大写
+-->
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button"
+        android:textAllCaps="false"/>
+<!--
+android:hint用来提示用户输入什么信息，用户输入后会消失
+android:maxLines="2"用来限定文本的最大行数。超过最大行后文本会向上滑动，文本框不会向下拉伸
+-->
+    <EditText
+        android:id="@+id/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Type something here"
+        android:maxLines="2"
+        />
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/img_1"/>
+
+</LinearLayout>
