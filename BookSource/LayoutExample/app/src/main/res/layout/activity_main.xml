@@ -18,6 +18,7 @@ bottom为底部对齐
 注意：垂直布局时，控件只有水平方向上的对齐才有效
 反之，水平布局时，控件只有垂直方向上的对齐才有效
 -->
+    <!--
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -38,5 +39,24 @@ bottom为底部对齐
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="@string/button3"/>
+    -->
+<!--
+android:hint是文本框的提示内容，用户输入信息后消失
+dp是Android用于指定控件大小、间距等属性的单位
+EditText和Button的weight都设为1，表示他们将在水平方向平分宽度
+分别占（1/（1+1））=1/2
+-->
+    <EditText
+        android:id="@+id/input_message"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="@string/type"/>
 
+    <Button
+        android:id="@+id/send"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Send"/>
 </LinearLayout>
