@@ -9,23 +9,34 @@ horizontal表示线性水平分布(默认）
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+<!--
+android:gravity用于指定文字在控件中的对齐方式
+android:layout_gravity用于指定控件在布局中的对齐方式
+top为顶部对齐
+center_vertical为垂直居中对齐
+bottom为底部对齐
+注意：垂直布局时，控件只有水平方向上的对齐才有效
+反之，水平布局时，控件只有垂直方向上的对齐才有效
+-->
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="top"
         android:text="@string/button1"/>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
         android:text="@string/button2"/>
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
         android:text="@string/button3"/>
 
 </LinearLayout>
