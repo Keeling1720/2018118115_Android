@@ -5,10 +5,13 @@
 vertical表示线性垂直分布
 horizontal表示线性水平分布(默认）
 -->
+<!--
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+-->
+
 <!--
 android:gravity用于指定文字在控件中的对齐方式
 android:layout_gravity用于指定控件在布局中的对齐方式
@@ -18,7 +21,8 @@ bottom为底部对齐
 注意：垂直布局时，控件只有水平方向上的对齐才有效
 反之，水平布局时，控件只有垂直方向上的对齐才有效
 -->
-    <!--
+
+<!--
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
@@ -39,13 +43,15 @@ bottom为底部对齐
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:text="@string/button3"/>
-    -->
+-->
 <!--
 android:hint是文本框的提示内容，用户输入信息后消失
 dp是Android用于指定控件大小、间距等属性的单位
 EditText和Button的weight都设为1，表示他们将在水平方向平分宽度
 分别占（1/（1+1））=1/2
 -->
+
+    <!--
     <EditText
         android:id="@+id/input_message"
         android:layout_width="0dp"
@@ -55,8 +61,59 @@ EditText和Button的weight都设为1，表示他们将在水平方向平分宽�
 
     <Button
         android:id="@+id/send"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:text="Send"/>
+        -->
+<!--
 </LinearLayout>
+-->
+    <!--相对布局-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+    <!--
+    通过设置layout_alignParent*=什么设置其相对位置
+    比如Top和Left为左上
+    layout_centerInParent(跟其他的有点不太一样)
+    Bottom和Right为右下
+    -->
+<Button
+    android:id="@+id/button1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:text="@string/button1"/>
+
+<Button
+    android:id="@+id/button2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentTop="true"
+    android:text="@string/button2"/>
+
+<Button
+    android:id="@+id/button3"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:text="@string/button3"/>
+
+<Button
+    android:id="@+id/button4"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:text="@string/button4"/>
+
+<Button
+    android:id="@+id/button5"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentRight="true"
+    android:text="@string/button5"/>
+</RelativeLayout>
