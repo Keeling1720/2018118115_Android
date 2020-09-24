@@ -131,6 +131,8 @@ android:layout_height="match_parent">
 这种布局比较少用
 所有控件都会默认放在布局的左上角
 -->
+<!--
+帧布局
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -150,3 +152,12 @@ android:layout_height="match_parent">
         android:src="@mipmap/ic_launcher"/>
 
 </FrameLayout>
+-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include layout="@layout/title"/>
+
+</LinearLayout>
