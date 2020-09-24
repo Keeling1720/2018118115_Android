@@ -68,10 +68,13 @@ EditText和Button的weight都设为1，表示他们将在水平方向平分宽�
 <!--
 </LinearLayout>
 -->
-    <!--相对布局-->
+
+
+<!--相对布局
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 android:layout_width="match_parent"
 android:layout_height="match_parent">
+-->
     <!--
     通过设置layout_alignParent*=什么设置其相对位置
     比如Top和Left为左上
@@ -82,6 +85,7 @@ android:layout_height="match_parent">
     layout_above、layout_below、layout_toLeftOf、layout_toRightOf
     相对于控件进行定位
     -->
+    <!--
 <Button
     android:id="@+id/button1"
     android:layout_width="wrap_content"
@@ -121,3 +125,28 @@ android:layout_height="match_parent">
     android:layout_toRightOf="@id/button3"
     android:text="@string/button5"/>
 </RelativeLayout>
+-->
+<!--
+帧布局
+这种布局比较少用
+所有控件都会默认放在布局的左上角
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:text="@string/text"/>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:src="@mipmap/ic_launcher"/>
+
+</FrameLayout>
