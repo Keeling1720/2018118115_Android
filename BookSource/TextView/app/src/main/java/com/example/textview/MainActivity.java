@@ -3,6 +3,7 @@ package com.example.textview;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
+
+import java.math.MathContext;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private EditText editText;
@@ -33,6 +36,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v){
         switch (v.getId()){
             case R.id.button:
+                ProgressDialog progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setTitle("This is a ProgressDialog");
+                progressDialog.setMessage("Loading....");
+                progressDialog.setCancelable(true);
+                progressDialog.show();
+                break;
+                /*AlertDialog
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                 dialog.setTitle("This is a Dialog");
                 dialog.setMessage("Something important");
@@ -51,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 dialog.show();
                 break;
+                 */
             default:
                 break;
         }
