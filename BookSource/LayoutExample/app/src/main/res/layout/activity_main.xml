@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<!--
+布局由android:orientation属性决定
+其中
+vertical表示线性垂直分布
+horizontal表示线性水平分布(默认）
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
