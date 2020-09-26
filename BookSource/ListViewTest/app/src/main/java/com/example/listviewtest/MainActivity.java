@@ -1,6 +1,8 @@
 package com.example.listviewtest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
@@ -24,20 +26,25 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initFruits();
-        FruitAdapter adapter = new FruitAdapter(MainActivity.this,
-                R.layout.fruit_item, fruitList);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        FruitAdapter adapter = new FruitAdapter(fruitList);
+        recyclerView.setAdapter(adapter);
+//        FruitAdapter adapter = new FruitAdapter(MainActivity.this,
+//                R.layout.fruit_item, fruitList);
 //        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this,
 //                android.R.layout.simple_list_item_1, data);
-        ListView listView = (ListView) findViewById(R.id.list_view);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Fruit fruit = fruitList.get(position);
-                Toast.makeText(MainActivity.this, fruit.getName(),
-                        Toast.LENGTH_SHORT).show();
-            }
-        });
+//        ListView listView = (ListView) findViewById(R.id.list_view);
+//        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Fruit fruit = fruitList.get(position);
+//                Toast.makeText(MainActivity.this, fruit.getName(),
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     private void initFruits(){
