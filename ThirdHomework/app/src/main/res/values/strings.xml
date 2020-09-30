@@ -3,4 +3,5 @@
     <string name="text">This is Lcw\'s TextView</string>
     <string name="edit">You can type anything</string>
     <string name="edit_bt">EditButton</string>
+    <string name="image_bt">Switch Picture</string>
 </resources>

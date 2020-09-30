@@ -35,5 +35,17 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cat"/>
+
+    <Button
+        android:id="@+id/image_bt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/image_bt" />
 
 </LinearLayout>
