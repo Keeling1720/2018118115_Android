@@ -5,6 +5,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private  Button edit_Button;
     private ImageView image;
     private Button image_Button;
-
+    private int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.image_bt:
-
+                if(count %2 == 0){
+                    image.setImageResource(R.drawable.dog);
+                }else{
+                    image.setImageResource(R.drawable.cat);
+                }
+                count++;
                 break;
             default:
                 break;
