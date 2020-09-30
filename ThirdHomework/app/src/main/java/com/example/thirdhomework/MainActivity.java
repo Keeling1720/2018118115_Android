@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button backButton;
@@ -50,9 +51,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
                 dialog.show();
                 break;
-            case R.id.edit_button:
 
+            case R.id.edit_button:
+                String input = editText.getText().toString();
+                Toast.makeText(MainActivity.this, input,
+                        Toast.LENGTH_SHORT).show();
+                editText.setText("");
                 break;
+
             case R.id.image_bt:
 
                 break;
