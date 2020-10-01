@@ -12,10 +12,24 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     private List<Car> carList;
+    private onTextChangeListener textListener;
+    private ArrayList<TextWatcher> listeners;
+
+    public void addTextChangeListener(TextWatcher watcher){
+        if(listeners == null){
+            listeners = new ArrayList<TextWatcher>();
+        }
+        listeners.add(watcher);
+    }
+
+    public void setOntextChangeListener(onTextChangeListener textListener){
+        this.textListener = textListener;
+    }
 
     static class ViewHolder extends RecyclerView.ViewHolder{
         View carView;
@@ -43,7 +57,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
             public void onClick(View v){
                 int position = holder.getAdapterPosition();
                 Car car = carList.get(position);
-                Toast.makeText(v.getContext(), "you clicked view" + car.getName(),
+                Toast.makeText(v.getContext(), "you clicked view " + car.getName(),
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -52,7 +66,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
             public void onClick(View v){
                 int position = holder.getAdapterPosition();
                 Car car = carList.get(position);
-                Toast.makeText(v.getContext(), "you clicked image"+car.getName(),
+                Toast.makeText(v.getContext(), "you clicked image "+car.getName(),
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -60,10 +74,35 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
         Car car = carList.get(position);
         holder.carImage.setImageResource(car.getImageId());
         holder.carName.setText(car.getName());
+        final TextWatcher textWatcher = new TextWatcher() {
+            Car car = carList.get(position);
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                textListener.onTextChanged(position, holder.carName.getText().toString());
+                car.setName(holder.carName.getText().toString());
+            }
+        };
+
+        holder.carName.setOnFocusChangeListener(new View.OnFocusChangeListener(){
+            @Override
+            public void onFocusChange(View v, boolean hasFocus){
+                if(hasFocus){
+                    holder.carName.addTextChangedListener(textWatcher);
+                }
+            }
+        });
     }
 
     @Override
