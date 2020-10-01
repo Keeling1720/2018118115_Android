@@ -24,3 +24,16 @@ https://github.com/Keeling1720/2018118115_Android/tree/master/SecondHomework
 
 https://github.com/Keeling1720/2018118115_Android/blob/master/SecondHomework/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A2.md
 
+
+
+实验报告3：
+
+掌握第三章UI的几个简单控件：TextView、Button、EditText、ImageView、AlertDialog以及对控件的布局。
+
+实验3项目根目录地址：
+
+https://github.com/Keeling1720/2018118115_Android/tree/master/ThirdHomework
+
+实验报告3文档信息地址：
+
+https://github.com/Keeling1720/2018118115_Android/blob/master/ThirdHomework/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E4%B8%89.md
