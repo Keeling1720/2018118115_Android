@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import android.os.Build;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -24,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
                 StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
         CarAdapter adapter = new CarAdapter(carList);
+        adapter.setOntextChangeListener(new onTextChangeListener() {
+            @Override
+            public void onTextChanged(int pos, String str) {
+            }
+        });
         recyclerView.setAdapter(adapter);
     }
 

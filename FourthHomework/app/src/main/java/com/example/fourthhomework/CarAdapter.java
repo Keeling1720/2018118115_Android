@@ -20,13 +20,6 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.ViewHolder> {
     private onTextChangeListener textListener;
     private ArrayList<TextWatcher> listeners;
 
-    public void addTextChangeListener(TextWatcher watcher){
-        if(listeners == null){
-            listeners = new ArrayList<TextWatcher>();
-        }
-        listeners.add(watcher);
-    }
-
     public void setOntextChangeListener(onTextChangeListener textListener){
         this.textListener = textListener;
     }
