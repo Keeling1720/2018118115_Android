@@ -37,3 +37,17 @@ https://github.com/Keeling1720/2018118115_Android/tree/master/ThirdHomework
 实验报告3文档信息地址：
 
 https://github.com/Keeling1720/2018118115_Android/blob/master/ThirdHomework/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E4%B8%89.md
+
+
+
+实验报告4：
+
+掌握RecyclerView的使用以及EditText的监听事件
+
+实验4项目根目录地址：
+
+https://github.com/Keeling1720/2018118115_Android/tree/master/FourthHomework
+
+实验报告4文档信息地址：
+
+https://github.com/Keeling1720/2018118115_Android/blob/master/FourthHomework/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A%E5%9B%9B.md
