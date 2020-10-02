@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">nine_patch</string>
+    <string name="text_msg">Type something here</string>
+    <string name="send">Send</string>
+</resources>
