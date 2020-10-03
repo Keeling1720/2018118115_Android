@@ -8,9 +8,9 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.button:
-                replaceFragment(new AnotherRightFragment());
+                if(count %2 == 0){
+                    replaceFragment(new AnotherRightFragment());
+                    count++;
+                }else {
+                    replaceFragment(new RightFragment());
+                    count++;
+                }
                 break;
             default:
                 break;
