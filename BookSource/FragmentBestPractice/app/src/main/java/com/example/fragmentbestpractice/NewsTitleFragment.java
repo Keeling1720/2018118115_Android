@@ -18,4 +18,15 @@ public class NewsTitleFragment extends Fragment {
         View view = inflater.inflate(R.layout.news_title_frag, container, false);
         return view;
     }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        if(getActivity().findViewById(R.id.news_content_fragment) != null){
+            isTwoPane = true;
+        }else {
+            isTwoPane = false;
+        }
+
+    }
 }
