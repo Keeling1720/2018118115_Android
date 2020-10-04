@@ -20,5 +20,12 @@ public class NewsContentFragment extends Fragment {
         return view;
     }
 
-
+    public void refresh(String newsTitle, String newsContent){
+        View visibilityLayout = view.findViewById(R.id.visibility_layout);
+        visibilityLayout.setVisibility(View.VISIBLE);
+        TextView newsTitleTest = (TextView) view.findViewById(R.id.news_title);
+        TextView newsContentTest = (TextView) view.findViewById(R.id.news_content);
+        newsTitleTest.setText(newsTitle);
+        newsContentTest.setText(newsContent);
+    }
 }
