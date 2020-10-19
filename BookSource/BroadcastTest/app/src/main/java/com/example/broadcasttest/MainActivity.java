@@ -14,10 +14,11 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import java.net.NetworkInterface;
+import java.time.LocalDate;
 
 public class MainActivity extends AppCompatActivity {
     private IntentFilter intentFilter;
-    private NetworkChangeReceiver networkChangeReceiver;
+    private LocalReceiver localReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +29,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent("com.example.broadcasttext.MY_BROADCAST");
-                sendBroadcast(intent);
+                sendOrderedBroadcast(intent, null);
             }
         });
     }
 }
 
+class LocalReceiver extends BroadcastReceiver{
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        Toast.makeText(context, "Received local broadcast",
+                Toast.LENGTH_SHORT).show();
+    }
+}
 class NetworkChangeReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent){

@@ -25,7 +25,7 @@
             android:name=".MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
-            <intent-filter>
+            <intent-filter android:priority="100">
                 <action android:name="com.example.broadcasttext.MY_BROADCAST"/>
             </intent-filter>
         </receiver>
@@ -33,7 +33,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
