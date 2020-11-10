@@ -18,10 +18,6 @@ public class MyService extends Service {
             Log.d("MyService", "获取进度");
             return 0;
         }
-
-        public IBinder onBind(Intent intent){
-            return mBinder;
-        }
     }
 
     public MyService(){
@@ -30,7 +26,7 @@ public class MyService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        return mBinder;
     }
 
     @Override
