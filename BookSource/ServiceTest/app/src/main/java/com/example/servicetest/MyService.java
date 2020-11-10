@@ -2,10 +2,28 @@ package com.example.servicetest;
 
 import android.app.Service;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 
 public class MyService extends Service {
+    private DownloadBinder mBinder = new DownloadBinder();
+
+    class DownloadBinder extends Binder {
+        public void startDownload(){
+            Log.d("MyService", "开始下载");
+        }
+
+        public int getProgress(){
+            Log.d("MyService", "获取进度");
+            return 0;
+        }
+
+        public IBinder onBind(Intent intent){
+            return mBinder;
+        }
+    }
+
     public MyService(){
 
     }
@@ -18,7 +36,7 @@ public class MyService extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("Myservice","销毁活动成功");
+        Log.d("MyService","销毁活动成功");
     }
 
     @Override
