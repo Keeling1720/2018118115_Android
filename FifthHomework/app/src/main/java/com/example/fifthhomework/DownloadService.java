@@ -9,9 +9,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Binder;
+import android.os.Environment;
+import android.os.FileObserver;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
+
+import java.io.File;
 
 public class DownloadService extends Service {
     private DownloadTask downloadTask;
@@ -69,6 +73,32 @@ public class DownloadService extends Service {
                 startForeground(1, getNotification("Downloading...", 0));
                 Toast.makeText(DownloadService.this, "Downloading...",
                         Toast.LENGTH_SHORT).show();
+            }
+        }
+
+        public void pauseDownload(){
+            if (downloadTask != null){
+                downloadTask.pauseDownload();
+            }
+        }
+
+        public void cancelDownload(){
+            if (downloadTask != null){
+                downloadTask.cancelDownload();
+            }else {
+                if (downloadTask != null){
+                    String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
+                    String directory = Environment.getExternalStoragePublicDirectory
+                            (Environment.DIRECTORY_DOWNLOADS).getPath();
+                    File file = new File(directory+fileName);
+                    if (file.exists()){
+                        file.delete();
+                    }
+                    getNotificationManager().cancel(1);
+                    stopForeground(true);
+                    Toast.makeText(DownloadService.this, "Canceled",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         }
     }
