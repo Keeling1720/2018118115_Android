@@ -13,7 +13,51 @@ import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 
 public class DownloadService extends Service {
+    private DownloadTask downloadTask;
+    private String downloadUrl;
 
+    private DownloadListener listener = new DownloadListener() {
+        @Override
+        public void onProgress(int progress) {
+            getNotificationManager().notify(1, getNotification("Downloading...",
+                    progress));
+        }
+
+        @Override
+        public void onSuccess() {
+            downloadTask = null;
+            stopForeground(true);
+            getNotificationManager().notify(1, getNotification("Download Success",
+                    -1));
+            Toast.makeText(DownloadService.this, "Download Success",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onFailed() {
+            downloadTask = null;
+            stopForeground(true);
+            getNotificationManager().notify(1, getNotification("Download Failed",
+                    -1));
+            Toast.makeText(DownloadService.this, "Download Failed",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onPaused() {
+            downloadTask = null;
+            Toast.makeText(DownloadService.this, "Paused",
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        @Override
+        public void onCanceled() {
+            downloadTask = null;
+            stopForeground(true);
+            Toast.makeText(DownloadService.this, "Pause",
+                    Toast.LENGTH_SHORT).show();
+        }
+    };
 
     private NotificationManager getNotificationManager(){
         return (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
