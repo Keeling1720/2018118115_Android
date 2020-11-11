@@ -1,6 +1,16 @@
 package com.example.fifthhomework;
 
 import android.os.AsyncTask;
+import android.os.Environment;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.RandomAccessFile;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class DownloadTask extends AsyncTask<String, Integer, Integer> {
     public static final int TYPE_SUCCESS = 0;
@@ -17,5 +27,17 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
         this.listener = listener;
     }
 
-
+    private long getContentLength(String downloadUrl) throws IOException{
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(downloadUrl)
+                .build();
+        Response response = client.newCall(request).execute();
+        if (response != null && response.isSuccessful()){
+            long contentLength = response.body().contentLength();
+            response.body().close();
+            return contentLength;
+        }
+        return 0;
+    }
 }
