@@ -26,6 +26,75 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
     public DownloadTask(DownloadListener listener){
         this.listener = listener;
     }
+    @Override
+    protected Integer doInBackground(String... params) {
+        InputStream is = null;
+        RandomAccessFile saveFile = null;
+        File file = null;
+        try{
+            long downloadLength = 0;
+            String downloadUrl = params[0];
+            String fileName = downloadUrl.substring(downloadUrl.lastIndexOf("/"));
+            String directory = Environment.getExternalStoragePublicDirectory
+                    (Environment.DIRECTORY_DOWNLOADS).getPath();
+            file = new File(directory + fileName);
+            if(file.exists()){
+                downloadLength = file.length();
+            }
+            long contentLength = getContentLength(downloadUrl);
+            if (contentLength == 0){
+                return TYPE_FAILED;
+            }else if (contentLength == downloadLength){
+                return TYPE_SUCCESS;
+            }
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder()
+                    .addHeader("RANGE", "bute = "+downloadLength + "-")
+                    .url(downloadUrl)
+                    .build();
+            Response response = client.newCall(request).execute();
+            if(response != null){
+                is = response.body().byteStream();
+                saveFile = new RandomAccessFile(file, "rw");
+                saveFile.seek(downloadLength);
+                byte[] b = new byte[1024];
+                int total = 0;
+                int len;
+                while ((len = is.read(b)) != -1){
+                    if (isCanceled){
+                        return TYPE_CANCELED;
+                    }else if(isPaused){
+                        return TYPE_PAUSED;
+                    }else{
+                        total += len;
+                        saveFile.write(b, 0, len);
+                        int progress = (int) ((total + downloadLength) * 100 /
+                                contentLength);
+                        publishProgress(progress);
+                    }
+                }
+                response.body().close();
+                return TYPE_SUCCESS;
+            }
+        } catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(is != null){
+                    is.close();
+                }
+                if(saveFile != null){
+                    saveFile.close();
+                }
+                if(isCanceled && file != null){
+                    file.delete();
+                }
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return TYPE_FAILED;
+    }
 
     @Override
     protected void onProgressUpdate(Integer... values) {
