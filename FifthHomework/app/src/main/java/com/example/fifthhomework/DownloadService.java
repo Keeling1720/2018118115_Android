@@ -118,10 +118,10 @@ public class DownloadService extends Service {
     private Notification getNotification(String title, int progress){
         Intent intent = new Intent(this, MainActivity.class);
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, null);
-        builder.setSmallIcon(R.mipmap.ic_launcher);
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "download_service");
+        builder.setSmallIcon(R.drawable.download_icon);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),
-                R.mipmap.ic_launcher));
+                R.drawable.download_icon));
         builder.setContentIntent(pi);
         builder.setContentTitle(title);
         if(progress > 0){
