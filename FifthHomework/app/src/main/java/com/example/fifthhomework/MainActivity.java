@@ -57,6 +57,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        if (downloadBinder == null){
+            return;
+        }
+        switch (v.getId()){
+            case R.id.start_download:
+                String url = "http://githubusercontent.com/guolindev/eclipse/master/" +
+                        "eclipse-inst-win64.exe";
+                downloadBinder.startDownload(url);
+                break;
+            case R.id.pause_download:
+                downloadBinder.pauseDownload();
+                break;
+            case R.id.cancel_download:
+                downloadBinder.cancelDownload();
+                break;
+            default:
+                break;
+        }
     }
 }
