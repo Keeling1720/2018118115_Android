@@ -26,7 +26,36 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
     public DownloadTask(DownloadListener listener){
         this.listener = listener;
     }
-    
+
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        int progress = values[0];
+        if(progress > lastProgress){
+            listener.onProgress(progress);
+            lastProgress = progress;
+        }
+    }
+
+    @Override
+    protected void onPostExecute(Integer status) {
+        switch (status){
+            case TYPE_SUCCESS:
+                listener.onSuccess();
+                break;
+            case TYPE_FAILED:
+                listener.onFailed();
+                break;
+            case TYPE_PAUSED:
+                listener.onPaused();
+                break;
+            case TYPE_CANCELED:
+                listener.onCanceled();
+                break;
+            default:
+                break;
+        }
+    }
+
     public void pauseDownload(){
         isPaused = true;
     }
