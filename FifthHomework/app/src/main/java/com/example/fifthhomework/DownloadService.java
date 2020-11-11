@@ -8,6 +8,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Binder;
 import android.widget.Toast;
 
 import androidx.core.app.NotificationCompat;
@@ -58,6 +59,19 @@ public class DownloadService extends Service {
                     Toast.LENGTH_SHORT).show();
         }
     };
+
+    class DownloadBinder extends Binder{
+        public void startDownload(String url){
+            if(downloadTask == null){
+                downloadUrl = url;
+                downloadTask = new DownloadTask(listener);
+                downloadTask.execute(downloadUrl);
+                startForeground(1, getNotification("Downloading...", 0));
+                Toast.makeText(DownloadService.this, "Downloading...",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 
     private NotificationManager getNotificationManager(){
         return (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
