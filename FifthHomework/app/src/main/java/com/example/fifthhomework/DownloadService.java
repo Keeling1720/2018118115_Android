@@ -11,8 +11,10 @@ import android.graphics.BitmapFactory;
 import android.os.Binder;
 import android.os.Environment;
 import android.os.FileObserver;
+import android.os.IBinder;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import java.io.File;
@@ -63,6 +65,12 @@ public class DownloadService extends Service {
                     Toast.LENGTH_SHORT).show();
         }
     };
+    private DownloadBinder mBinder = new DownloadBinder();
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
+    }
 
     class DownloadBinder extends Binder{
         public void startDownload(String url){
