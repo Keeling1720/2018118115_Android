@@ -49,7 +49,7 @@ public class DownloadTask extends AsyncTask<String, Integer, Integer> {
             }
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .addHeader("RANGE", "bute = "+downloadLength + "-")
+                    .addHeader("RANGE", "bytes=" + downloadLength + "-")
                     .url(downloadUrl)
                     .build();
             Response response = client.newCall(request).execute();

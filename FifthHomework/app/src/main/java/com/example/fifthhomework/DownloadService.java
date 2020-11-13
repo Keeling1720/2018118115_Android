@@ -1,23 +1,24 @@
 package com.example.fifthhomework;
 
-import android.app.IntentService;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Environment;
-import android.os.FileObserver;
 import android.os.IBinder;
 import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.core.app.NotificationCompat;
 
 import java.io.File;
+import java.io.InputStream;
 
 public class DownloadService extends Service {
     private DownloadTask downloadTask;
@@ -53,6 +54,7 @@ public class DownloadService extends Service {
         @Override
         public void onPaused() {
             downloadTask = null;
+            stopForeground(true);
             Toast.makeText(DownloadService.this, "Paused",
                     Toast.LENGTH_SHORT).show();
         }
@@ -65,6 +67,7 @@ public class DownloadService extends Service {
                     Toast.LENGTH_SHORT).show();
         }
     };
+
     private DownloadBinder mBinder = new DownloadBinder();
 
     @Override
@@ -117,14 +120,28 @@ public class DownloadService extends Service {
 
     private Notification getNotification(String title, int progress){
         Intent intent = new Intent(this, MainActivity.class);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel("download_service",
+                    "前台Service通知", NotificationManager.IMPORTANCE_HIGH);
+            channel.enableLights(true);
+            channel.setLightColor(Color.BLUE);
+            channel.setShowBadge(true);
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            NotificationManager manager = (NotificationManager)
+                    getSystemService(Context.NOTIFICATION_SERVICE);
+            manager.createNotificationChannel(channel);
+        }
+
         PendingIntent pi = PendingIntent.getActivity(this, 0, intent, 0);
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "download_service");
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this,
+                "download_service");
         builder.setSmallIcon(R.drawable.download_icon);
         builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),
                 R.drawable.download_icon));
         builder.setContentIntent(pi);
         builder.setContentTitle(title);
-        if(progress > 0){
+        if(progress >= 0){
             builder.setContentText(progress + "%");
             builder.setProgress(100, progress, false);
         }

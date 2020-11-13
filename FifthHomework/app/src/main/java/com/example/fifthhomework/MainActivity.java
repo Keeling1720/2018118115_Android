@@ -2,30 +2,26 @@ package com.example.fifthhomework;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
-import android.app.IntentService;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
 import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
-import android.os.Build;
+
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button startDownload;
     private Button pauseDownload;
     private Button cancelDownload;
     private DownloadService.DownloadBinder downloadBinder;
-    private NotificationManager manager;
+
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
@@ -42,13 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initWindow();
-
-        manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel channel = new NotificationChannel("download_service",
-                    "前台Service通知", NotificationManager.IMPORTANCE_DEFAULT);
-            manager.createNotificationChannel(channel);
-        }
 
         Intent intent = new Intent(this, DownloadService.class);
         startService(intent);
@@ -76,8 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         switch (v.getId()){
             case R.id.start_download:
-                String url = "http://githubusercontent.com/guolindev/eclipse/master/" +
-                        "eclipse-inst-win64.exe";
+                String url = "https://d1.music.126.net/dmusic/cloudmusicsetup2.7.4.198374.exe";
                 downloadBinder.startDownload(url);
                 break;
             case R.id.pause_download:
@@ -89,5 +77,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String[] permissions,
+                                           int[] grantResults) {
+        switch (requestCode){
+            case 1:
+                if(grantResults.length > 0 && grantResults[0] !=
+                        PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(this,"拒绝权限将无法使用程序",
+                            Toast.LENGTH_SHORT).show();
+                    finish();
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unbindService(connection);
     }
 }
