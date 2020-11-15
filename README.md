@@ -46,6 +46,14 @@ https://github.com/Keeling1720/2018118115_Android/blob/master/SecondHomework/%E5
 
 实验目的：掌握Intent应用，特别是系统内置隐含Intent和自定义的Intent的使用
 
+实验4项目根目录地址：
+
+https://github.com/Keeling1720/2018118115_Android/tree/master/Homework_4
+
+实验报告4文档信息地址：
+
+https://github.com/Keeling1720/2018118115_Android/blob/master/Homework_4/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A4.md
+
 
 
 ## 实验报告5：
@@ -79,3 +87,4 @@ https://github.com/Keeling1720/2018118115_Android/blob/master/FourthHomework/%E5
 ## 实验报告7.
 
 实验目的：掌握广播，自定义广播的使用
+
