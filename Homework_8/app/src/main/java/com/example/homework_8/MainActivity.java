@@ -38,7 +38,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.change_text:
-
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Message msg = new Message();
+                        msg.what = UPDATE_TEXT;
+                        handler.sendMessage(msg);
+                    }
+                }).start();
                 break;
             default:
                 break;
