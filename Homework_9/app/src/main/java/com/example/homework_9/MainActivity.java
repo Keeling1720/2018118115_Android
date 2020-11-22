@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        DownloadTask task = new DownloadTask();
+        task.execute(100);
     }
 
     class DownloadTask extends AsyncTask<Integer, Integer, String>{
