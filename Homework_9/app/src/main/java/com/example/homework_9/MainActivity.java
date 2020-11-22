@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for(int i = 0; i < 100; i++){
                 progressBar.setProgress(i);
                 publishProgress(i);
-                //每次调用都再开辟一个子线程休息params[0]时间
+                //每次调用都再开辟一个子线程休息params[0]时间,这里的param来自
+                // DownloadTask对象的.execute()方法中的参数
                 try {
                     Thread.sleep(params[0]);
                 } catch (InterruptedException e) {
