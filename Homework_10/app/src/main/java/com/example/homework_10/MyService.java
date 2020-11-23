@@ -8,8 +8,9 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 public class MyService extends Service {
-    public MyService(){
+    private Task task;
 
+    public MyService(){
     }
 
     @Nullable
@@ -27,6 +28,22 @@ public class MyService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("MyService","onStartCommand被执行"+"此时线程id为"+Thread.currentThread().getId());
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                int number = 1;
+                while(true){
+                    task = new Task();
+                    task.execute((int) Thread.currentThread().getId(), number);
+                    try{
+                        Thread.sleep(3000);
+                        number++;
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }).start();
         return super.onStartCommand(intent, flags, startId);
     }
 
