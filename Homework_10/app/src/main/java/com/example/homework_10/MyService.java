@@ -21,18 +21,18 @@ public class MyService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("MyService", "onCreate被执行");
+        Log.d("MyService", "onCreate被执行"+"此时线程id为"+Thread.currentThread().getId());
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("Myservice","onStartCommand被执行");
+        Log.d("MyService","onStartCommand被执行"+"此时线程id为"+Thread.currentThread().getId());
         return super.onStartCommand(intent, flags, startId);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("MyService", "onDestroy被执行");
+        Log.d("MyService", "onDestroy被执行"+"此时线程id为"+Thread.currentThread().getId());
     }
 }
