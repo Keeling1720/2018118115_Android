@@ -59,7 +59,7 @@ public class MyService extends Service {
         super.onDestroy();
         flag = false;
         task = new Task();
-        task.execute((int) Thread.currentThread().getId(), 0);
         Log.d("MyService", "onDestroy被执行"+"此时线程id为"+Thread.currentThread().getId());
+        task.execute((int) Thread.currentThread().getId(), 0);
     }
 }
