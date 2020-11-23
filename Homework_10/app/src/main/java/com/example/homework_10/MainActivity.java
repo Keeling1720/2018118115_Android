@@ -2,6 +2,7 @@ package com.example.homework_10;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.start_service:
+                Intent start_intent = new Intent(this, MyService.class);
+                startService(start_intent);
+                break;
+            case R.id.stop_service:
+                Intent stop_intent = new Intent(this, MyService.class);
+                stopService(stop_intent);
+                break;
+            default:
+                break;
+        }
     }
 }
