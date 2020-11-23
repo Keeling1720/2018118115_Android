@@ -13,7 +13,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private Button startService;
     private Button stopService;
-    private TextView textView;
+    public static TextView textView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,33 +42,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+}
 
-    class Task extends AsyncTask<Integer, Integer, Void>{
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
+class Task extends AsyncTask<Integer, Integer, Void>{
+    @Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+    }
 
-        @Override
-        protected Void doInBackground(Integer... params) {
-            try {
+    @Override
+    protected Void doInBackground(Integer... params) {
+        try {
                 publishProgress(params);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-            return null;
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        return null;
+    }
 
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            textView.setText("线程"+values[0]+"\n"+
-                    "第"+values[1]+"次运行");
-            super.onProgressUpdate(values);
-        }
+    @Override
+    protected void onProgressUpdate(Integer... values) {
+        MainActivity.textView.setText("线程"+values[0]+"\n"+
+                "第"+values[1]+"次运行");
+        super.onProgressUpdate(values);
+    }
 
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-        }
+    @Override
+    protected void onPostExecute(Void aVoid) {
+        super.onPostExecute(aVoid);
     }
 }
