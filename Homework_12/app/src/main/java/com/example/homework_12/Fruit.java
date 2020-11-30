@@ -2,9 +2,9 @@ package com.example.homework_12;
 
 public class Fruit {
     private String name;
-    private String imageId;
+    private int imageId;
 
-    Fruit(String name, String imageId){
+    Fruit(String name, int imageId){
         this.name = name;
         this.imageId = imageId;
     }
@@ -13,7 +13,7 @@ public class Fruit {
         return name;
     }
 
-    public String getImageId() {
+    public int getImageId() {
         return imageId;
     }
 }
