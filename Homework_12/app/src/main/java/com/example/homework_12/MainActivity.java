@@ -19,6 +19,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -105,5 +106,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    private void initFruits(){
+        fruitList.clear();
+        for(int i = 0; i < 50; i++){
+            Random random = new Random();
+            int index = random.nextInt(fruits.length);
+            fruitList.add(fruits[index]);
+        }
     }
 }
