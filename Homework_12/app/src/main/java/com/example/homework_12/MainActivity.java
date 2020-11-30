@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Data restored",
                                         Toast.LENGTH_SHORT).show();
                             }
-                        });
+                        }).show();
             }
         });
         initFruits();
