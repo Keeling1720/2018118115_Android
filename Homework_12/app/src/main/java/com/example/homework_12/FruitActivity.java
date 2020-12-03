@@ -17,8 +17,8 @@ import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 
 public class FruitActivity extends AppCompatActivity {
-    private static final String FRUIT_NAME = "fruit_name";
-    private static final String FRUIT_IMAGE_ID = "fruit_image_id";
+    public static final String FRUIT_NAME = "fruit_name";
+    public static final String FRUIT_IMAGE_ID = "fruit_image_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
