@@ -43,7 +43,7 @@ public class FruitActivity extends AppCompatActivity {
         fruitContentText.setText(fruitContent);
     }
 
-    private String generateFruitContent(String fruitName）{
+    private String generateFruitContent(String fruitName){
         StringBuilder fruitContent = new StringBuilder();
         for(int i = 0; i < 500; i++){
             fruitContent.append(fruitName);
