@@ -56,7 +56,7 @@ public class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> 
                 context.startActivity(intent);
             }
         });
-        return new ViewHolder(view);
+        return holder;
     }
 
     @Override
