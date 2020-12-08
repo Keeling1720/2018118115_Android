@@ -32,6 +32,14 @@
             android:layout_width="match_parent"
             android:layout_height="85dp"
             android:layout_marginTop="40dp">
-
+            <!-- 显示单词的文本框 -->
+            <TextView
+                android:id="@+id/word_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="abandon"
+                android:textColor="@android:color/white"
+                android:textSize="50dp"/>
         </RelativeLayout>
 </LinearLayout>
