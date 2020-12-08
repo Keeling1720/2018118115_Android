@@ -27,5 +27,11 @@
         android:text="12月8日 星期二"
         android:textColor="@android:color/white"
         android:textSize="17dp"/>
+        <!-- 相对布局，用来包裹单词与播放声音的喇叭 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginTop="40dp">
 
+        </RelativeLayout>
 </LinearLayout>
