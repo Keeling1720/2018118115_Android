@@ -6,7 +6,7 @@ import de.greenrobot.daogenerator.Schema;
 
 public class MyClass {
     public static void main(String[] args){
-        //创建Schema对象，构造方法第一个参数伟数据库版本号
+        //创建Schema对象，构造方法第1个参数伟数据库版本号
         //第二个参数为自动生成的实体类将要存放的位置
         Schema schema = new Schema(1000, "com.mingrisoft.greendao.entity.greendao");
         //添加需要创建的实体类消息
