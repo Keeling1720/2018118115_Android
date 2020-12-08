@@ -19,6 +19,7 @@ import com.iflytek.cloud.speech.SpeechConstant;
 import com.iflytek.cloud.speech.SpeechError;
 import com.iflytek.cloud.speech.SpeechListener;
 import com.iflytek.cloud.speech.SpeechSynthesizer;
+import com.iflytek.cloud.speech.SpeechUser;
 import com.iflytek.cloud.speech.SynthesizerListener;
 import com.mingrisoft.greendao.entity.greendao.CET4Entity;
 import com.mingrisoft.greendao.entity.greendao.CET4EntityDao;
@@ -141,6 +142,9 @@ public class MainActivity extends AppCompatActivity
         radioOne = (RadioButton) findViewById(R.id.choose_btn_one);
         radioTwo = (RadioButton) findViewById(R.id.choose_btn_two);
         radioThree = (RadioButton) findViewById(R.id.choose_btn_three);
+        setParam();
+        SpeechUser.getUser().login(MainActivity.this, null, null,
+                "appid=5fcfa175", listener);
     }
 
     @Override
