@@ -77,7 +77,7 @@
             android:text="A: 能力"
             android:button="@null"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="30sp"/>
         <!-- 选项B -->
         <RadioButton
             android:id="@+id/choose_btn_two"
@@ -86,7 +86,7 @@
             android:text="B: 放弃"
             android:button="@null"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="30sp"/>
         <!-- 选项C -->
         <RadioButton
             android:id="@+id/choose_btn_three"
@@ -95,6 +95,6 @@
             android:text="C: 反常的"
             android:button="@null"
             android:textColor="@android:color/white"
-            android:textSize="20sp"/>
+            android:textSize="30sp"/>
     </RadioGroup>
 </LinearLayout>
