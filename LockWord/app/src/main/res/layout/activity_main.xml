@@ -69,6 +69,32 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
         android:orientation="vertical">
-
+        <!-- 选项A -->
+        <RadioButton
+            android:id="@+id/choose_btn_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="A: 能力"
+            android:button="@null"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+        <!-- 选项B -->
+        <RadioButton
+            android:id="@+id/choose_btn_two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="B: 放弃"
+            android:button="@null"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
+        <!-- 选项C -->
+        <RadioButton
+            android:id="@+id/choose_btn_three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C: 反常的"
+            android:button="@null"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"/>
     </RadioGroup>
 </LinearLayout>
