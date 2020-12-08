@@ -7,6 +7,7 @@
     android:background="@mipmap/background"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <!--显示时间的文本框-->
     <TextView
         android:id="@+id/time_text"
         android:layout_width="match_parent"
@@ -16,4 +17,15 @@
         android:text="21:45"
         android:textColor="@android:color/white"
         android:textSize="50dp"/>
+    <!-- 显示日期的文本框 -->
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:gravity="center_horizontal"
+        android:text="12月8日 星期二"
+        android:textColor="@android:color/white"
+        android:textSize="17dp"/>
+
 </LinearLayout>
