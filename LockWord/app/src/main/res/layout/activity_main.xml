@@ -61,5 +61,14 @@
         android:text="[ə'bændən]"
         android:textColor="@android:color/white"
         android:textSize="20dp"/>
+    <!-- 存放选项的父布局 -->
+    <RadioGroup
+        android:id="@+id/choose_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical">
 
+    </RadioGroup>
 </LinearLayout>
