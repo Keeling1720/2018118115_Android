@@ -75,6 +75,19 @@ public class MainActivity extends AppCompatActivity
         //初始化轻量级数据库
         sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();      //初始化轻量级数据库编辑器
+        //给播放单词语音的设置appid
+        list = new ArrayList<Integer>();
+        /**
+         * 添加十个20以内的随机数
+         */
+        Random r = new Random();
+        int i;
+        while (list.size() < 10){
+            i = r.nextInt(20);
+            if(! list.contains(i)){
+                list.add(i);
+            }
+        }
 
     }
 
