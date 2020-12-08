@@ -15,7 +15,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.assetsbasedata.AssetsDatabaseManager;
+import com.iflytek.cloud.speech.SpeechError;
 import com.iflytek.cloud.speech.SpeechSynthesizer;
+import com.iflytek.cloud.speech.SynthesizerListener;
 import com.mingrisoft.greendao.entity.greendao.CET4Entity;
 import com.mingrisoft.greendao.entity.greendao.CET4EntityDao;
 import com.mingrisoft.greendao.entity.greendao.DaoMaster;
@@ -26,7 +28,7 @@ import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity
-        implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
+        implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, SynthesizerListener {
     //用来显示单词和音标
     private TextView timeText, dateText, wordText, englishText;
     //用来播放声音
@@ -141,11 +143,48 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.play_voice:
+                String text = wordText.getText().toString();
+                speechSynthesizer.startSpeaking(text, this);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+    }
+
+    @Override
+    public void onSpeakBegin() {
+
+    }
+
+    @Override
+    public void onBufferProgress(int i, int i1, int i2, String s) {
+
+    }
+
+    @Override
+    public void onSpeakPaused() {
+
+    }
+
+    @Override
+    public void onSpeakResumed() {
+
+    }
+
+    @Override
+    public void onSpeakProgress(int i, int i1, int i2) {
+
+    }
+
+    @Override
+    public void onCompleted(SpeechError speechError) {
 
     }
 }
