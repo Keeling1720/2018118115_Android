@@ -88,6 +88,21 @@ public class MainActivity extends AppCompatActivity
                 list.add(i);
             }
         }
+        /**
+         * 得到键盘锁管理对象
+         */
+        km = (KeyguardManager) getSystemService(Context.KEYGUARD_SERVICE);
+        kl = km.newKeyguardLock("unLock");
+        //初始化。只需要调用一次
+        AssetsDatabaseManager.initManager(this);
+        //获取管理对象，因为数据库需要通过管理对象才能够获取
+        AssetsDatabaseManager mg = AssetsDatabaseManager.getManager();
+        //通过管理对象获取数据库
+        SQLiteDatabase db1 = mg.getDatabase("word.db");
+        //对数据库进行操作
+        daoMaster = new DaoMaster(db1);
+        daoSession = daoMaster.newSession();
+        questionDao = daoSession.getCET4EntityDao();
 
     }
 
