@@ -51,5 +51,15 @@
             android:layout_marginRight="60dp"
             android:background="@mipmap/voice"/>
     </RelativeLayout>
+    <!-- 显示单词音标的文本框 -->
+    <TextView
+        android:id="@+id/english_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="[ə'bændən]"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"/>
 
 </LinearLayout>
