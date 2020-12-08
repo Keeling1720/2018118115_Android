@@ -198,7 +198,6 @@ public class MainActivity extends AppCompatActivity
         dateText.setText(month + "月" + day + "日" + "    " + "星期" + way);
     }
 
-    protected void
     @Override
     public void onClick(View v) {
         switch (v.getId()){
