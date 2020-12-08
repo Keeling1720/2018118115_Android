@@ -72,6 +72,19 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void init(){
+        //初始化轻量级数据库
+        sharedPreferences = getSharedPreferences("share", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();      //初始化轻量级数据库编辑器
+
+    }
+
+    @Override
+    public void onClick(View v) {
+
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
 
     }
 }
