@@ -27,6 +27,7 @@ import com.mingrisoft.greendao.entity.greendao.DaoMaster;
 import com.mingrisoft.greendao.entity.greendao.DaoSession;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -147,6 +148,57 @@ public class MainActivity extends AppCompatActivity
                 "appid=5fcfa175", listener);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        /**
+         * 设置系统日期，并显示
+         */
+        Calendar calendar = Calendar.getInstance();
+        month = String.valueOf(calendar.get(Calendar.MONTH) + 1);       //获取日期的月
+        day = String.valueOf(calendar.get(Calendar.DAY_OF_MONTH) + 1);  //获取日期的日
+        way = String.valueOf(calendar.get(Calendar.DAY_OF_WEEK));       //获取日期的星期
+        /**
+         * 如果小时时个位数
+         * 则在前面加一个“0”
+         */
+        if(calendar.get(Calendar.HOUR) < 10){
+            hours = "0" + calendar.get(Calendar.HOUR);
+        }else {
+            hours = String.valueOf(calendar.get(Calendar.HOUR));
+        }
+        /**
+         * 如果分钟是个位数
+         * 也在前面加一个“0”
+         */
+        if(calendar.get(Calendar.MINUTE) < 10){
+            minute = "0" + calendar.get(Calendar.MINUTE);
+        }else {
+            minute = String.valueOf(calendar.get(Calendar.MINUTE));
+        }
+        /**
+         * 获取星期并显示
+         */
+        if ("1".equals(way)){
+            way = "天";
+        }else if ("2".equals(way)){
+            way = "一";
+        }else if ("3".equals(way)){
+            way = "二";
+        }else if ("4".equals(way)){
+            way = "三";
+        }else if ("5".equals(way)){
+            way = "四";
+        }else if ("6".equals(way)){
+            way = "五";
+        }else if ("7".equals(way)){
+            way = "六";
+        }
+        timeText.setText(hours + ":" + minute);
+        dateText.setText(month + "月" + day + "日" + "    " + "星期" + way);
+    }
+
+    protected void
     @Override
     public void onClick(View v) {
         switch (v.getId()){
