@@ -103,6 +103,19 @@ public class MainActivity extends AppCompatActivity
         daoMaster = new DaoMaster(db1);
         daoSession = daoMaster.newSession();
         questionDao = daoSession.getCET4EntityDao();
+        /**
+         * 此DevOpenHelper类继承自SQLiteOpenHelper,
+         * 第一个参数Context,第二个参数时数据库名字,第三个参数CursorFactory
+         */
+        DaoMaster.DevOpenHelper helper = new DaoMaster.
+                DevOpenHelper(this, "wrong.db", null);
+        /**
+         * 初始化数据库
+         */
+        db = helper.getWritableDatabase();
+        dbMaster = new DaoMaster(db);
+        dbSession = dbMaster.newSession();
+        dbDao = dbSession.getCET4EntityDao();
 
     }
 
