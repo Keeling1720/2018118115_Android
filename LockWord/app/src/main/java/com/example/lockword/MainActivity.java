@@ -3,23 +3,30 @@ package com.example.lockword;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.KeyguardManager;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import com.example.assetsbasedata.AssetsDatabaseManager;
+import com.iflytek.cloud.speech.SpeechSynthesizer;
 import com.mingrisoft.greendao.entity.greendao.CET4Entity;
 import com.mingrisoft.greendao.entity.greendao.CET4EntityDao;
 import com.mingrisoft.greendao.entity.greendao.DaoMaster;
 import com.mingrisoft.greendao.entity.greendao.DaoSession;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener,RadioGroup.OnCheckedChangeListener {
     //用来显示单词和音标
     private TextView timeText, dateText, wordText, englishText;
     //用来播放声音
@@ -49,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
     float y2 = 0;
 
     private SQLiteDatabase db;                  //创建数据库
-    private DaoMaster daoMaster, dbManager;     //管理者
+    private DaoMaster daoMaster, dbMaster;     //管理者
     private DaoSession daoSession, dbSession;   //和数据库进行会话
     //对应的表，由java代码生成的，对数据库内相应的表操作使用此对象
     private CET4EntityDao questionDao, dbDao;
@@ -61,5 +68,10 @@ public class MainActivity extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
                                 | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
         setContentView(R.layout.activity_main);
+        init();
+    }
+
+    private void init(){
+
     }
 }
