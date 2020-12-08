@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.example.assetsbasedata.AssetsDatabaseManager;
 import com.iflytek.cloud.speech.SpeechError;
+import com.iflytek.cloud.speech.SpeechListener;
 import com.iflytek.cloud.speech.SpeechSynthesizer;
 import com.iflytek.cloud.speech.SynthesizerListener;
 import com.mingrisoft.greendao.entity.greendao.CET4Entity;
@@ -187,4 +188,25 @@ public class MainActivity extends AppCompatActivity
     public void onCompleted(SpeechError speechError) {
 
     }
+
+    /**
+     * 通用回调接口
+     */
+    private SpeechListener listener = new SpeechListener() {
+        //消息回调
+        @Override
+        public void onEvent(int arg0, Bundle arg1) {
+
+        }
+        //数据回调
+        @Override
+        public void onData(byte[] bytes) {
+
+        }
+        //结束回调（没有错误）
+        @Override
+        public void onCompleted(SpeechError speechError) {
+
+        }
+    };
 }
