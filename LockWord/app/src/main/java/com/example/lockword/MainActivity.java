@@ -15,6 +15,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.assetsbasedata.AssetsDatabaseManager;
+import com.iflytek.cloud.speech.SpeechConstant;
 import com.iflytek.cloud.speech.SpeechError;
 import com.iflytek.cloud.speech.SpeechListener;
 import com.iflytek.cloud.speech.SpeechSynthesizer;
@@ -209,4 +210,14 @@ public class MainActivity extends AppCompatActivity
 
         }
     };
+    /**
+     * 初始化语音播报
+     */
+    public void setParam(){
+        speechSynthesizer = SpeechSynthesizer.createSynthesizer(this);
+        speechSynthesizer.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");
+        speechSynthesizer.setParameter(SpeechConstant.SPEED, "50");
+        speechSynthesizer.setParameter(SpeechConstant.VOLUME, "50");
+        speechSynthesizer.setParameter(SpeechConstant.PITCH, "50");
+    }
 }
