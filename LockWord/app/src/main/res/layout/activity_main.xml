@@ -41,5 +41,14 @@
                 android:text="abandon"
                 android:textColor="@android:color/white"
                 android:textSize="50dp"/>
+            <!-- 显示播放语音的喇叭的图片控件 -->
+            <ImageView
+                android:id="@+id/play_vioce"
+                android:layout_width="27dp"
+                android:layout_height="27dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
+                android:background="@mipmap/vioce"/>
         </RelativeLayout>
 </LinearLayout>
