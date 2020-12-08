@@ -116,7 +116,27 @@ public class MainActivity extends AppCompatActivity
         dbMaster = new DaoMaster(db);
         dbSession = dbMaster.newSession();
         dbDao = dbSession.getCET4EntityDao();
-
+        /**
+         * 初始化控件
+         */
+        //用于显示分钟绑定id
+        timeText = (TextView) findViewById(R.id.time_text);
+        //用于显示日期绑定id
+        dateText = (TextView) findViewById(R.id.date_text);
+        //用于显示单词绑定id
+        wordText = (TextView) findViewById(R.id.word_text);
+        //用于显示英标绑定id
+        englishText = (TextView) findViewById(R.id.english_text);
+        //用于播放单词的按钮绑定id，并监听该按钮
+        playVoice = (ImageView) findViewById(R.id.play_voice);
+        playVoice.setOnClickListener(this);
+        //加载单词三个选项组绑定id,并监听该选项组
+        radioGroup = (RadioGroup) findViewById(R.id.choose_group);
+        radioGroup.setOnCheckedChangeListener(this);
+        //给三个选项绑定id
+        radioOne = (RadioButton) findViewById(R.id.choose_btn_one);
+        radioTwo = (RadioButton) findViewById(R.id.choose_btn_two);
+        radioThree = (RadioButton) findViewById(R.id.choose_btn_three);
     }
 
     @Override
