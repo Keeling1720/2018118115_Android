@@ -226,6 +226,12 @@ public class MainActivity extends AppCompatActivity
             wordText.setTextColor(Color.RED);
             englishText.setTextColor(Color.RED);
             item.setTextColor(Color.RED);
+            saveWrongData();            //执行存入错题的方法
+            //保存到数据库
+            int wrong = sharedPreferences.getInt("wrong", 0);   //从数据库中取出整数
+            editor.putInt("wrong", wrong + 1);  //写入数据库
+            editor.putString("wongId", "," + datas.get(j).getId()); //写入数据库
+            editor.commit();        //保存
         }
     }
 
