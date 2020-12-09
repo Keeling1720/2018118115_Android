@@ -200,6 +200,7 @@ public class MainActivity extends AppCompatActivity
         }
         timeText.setText(hours + ":" + minute);
         dateText.setText(month + "月" + day + "日" + "    " + "星期" + way);
+        getDBData();
     }
 
     /**
