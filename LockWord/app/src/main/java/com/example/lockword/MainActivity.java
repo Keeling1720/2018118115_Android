@@ -301,6 +301,25 @@ public class MainActivity extends AppCompatActivity
         finish();                   //销毁当前activity
     }
 
+    /**
+     * 选项设置
+     */
+    private void setChina(List<CET4Entity> datas, int j){
+        /**
+         * 随机产生几个随机数，用于解锁单词
+         * 因为数据库只录入20个单词，所以产生的随机数是20以内的数
+         */
+        Random r = new Random();
+        List<Integer> listInt = new ArrayList<>();
+        int i;
+        while (listInt.size() < 4){
+            i = r.nextInt(20);
+            if(! listInt.contains(i)){
+                listInt.add(i);
+            }
+        }
+    }
+
     @Override
     public void onSpeakBegin() {
 
