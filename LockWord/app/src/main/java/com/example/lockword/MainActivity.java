@@ -373,6 +373,24 @@ public class MainActivity extends AppCompatActivity
         setChina(datas, k);                             //设置单词的三个词义选项
     }
 
+    /**
+     * 获取下一题
+     */
+    private void getNextData(){
+        j++;                                                            //当前已做题的数目
+        int i = sharedPreferences.getInt("allNum", 5);    //默认解锁题目为5道
+        if(i > j){
+            getDBData();            //获取数据
+            setTextColor();         //设置颜色
+            //已经学过的单词数量加一
+            int num = sharedPreferences.getInt("alreadyStudy", 0) + 1;
+            editor.putInt("alreadyStudy", num);
+            editor.commit();                //存到数据库中
+        }else {
+            unlocked();                     //解锁
+        }
+    }
+
     @Override
     public void onSpeakBegin() {
 
