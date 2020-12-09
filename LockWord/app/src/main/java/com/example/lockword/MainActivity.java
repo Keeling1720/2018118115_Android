@@ -362,6 +362,17 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * 获取数据库数据
+     */
+    private void getDBData(){
+        datas = questionDao.queryBuilder().list();      //把词库中的单词读出来
+        k = list.get(j);
+        wordText.setText(datas.get(k).getWord());       //设置单词
+        englishText.setText(datas.get(k).getEnglish()); //设置音标
+        setChina(datas, k);                             //设置单词的三个词义选项
+    }
+
     @Override
     public void onSpeakBegin() {
 
