@@ -247,9 +247,28 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     *  选项的单击事件
+     */
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-
+        switch (checkedId){
+            case R.id.choose_btn_one:
+                //截取字符串
+                String msgA = radioOne.getText().toString().substring(3);
+                btnGetText(msgA, radioOne);      //将参数传入对应的方法中
+                break;
+            case R.id.choose_btn_two:
+                String msgB = radioTwo.getText().toString().substring(3);
+                btnGetText(msgB, radioTwo);
+                break;
+            case R.id.choose_btn_three:
+                String msgC = radioThree.getText().toString().substring(3);
+                btnGetText(msgC, radioThree);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
