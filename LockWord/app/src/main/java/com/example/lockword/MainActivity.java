@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
@@ -286,6 +287,18 @@ public class MainActivity extends AppCompatActivity
         //将单词和音标设置为白色
         wordText.setTextColor(Color.parseColor("#FFFFFF"));
         englishText.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+
+    /**
+     * 解锁
+     */
+    private void unlocked(){
+        Intent intent = new Intent(Intent.ACTION_MAIN); //界面跳转
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_HOME);       //进入到手机桌面
+        startActivity(intent);      //启动
+        kl.disableKeyguard();       //解锁
+        finish();                   //销毁当前activity
     }
 
     @Override
