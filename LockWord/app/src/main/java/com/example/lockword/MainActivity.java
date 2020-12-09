@@ -318,6 +318,48 @@ public class MainActivity extends AppCompatActivity
                 listInt.add(i);
             }
         }
+        /**
+         * 以下的判断是为这个单词设置三个选项，设置单词的选项是有规律的
+         * 三个选项，分别是正确的、正确的前一个、正确的后一个
+         * 将这三个解释设置到单词的选项上
+         */
+        if(listInt.get(0) < 7){
+            radioOne.setText("A: "+datas.get(k).getChina());
+            if(k - 1 >= 0){
+                radioTwo.setText("B: " + datas.get(k - 1).getChina());
+            }else {
+                radioTwo.setText("B: "+datas.get(k + 2).getChina());
+            }
+            if(k + 1 < 20){
+                radioThree.setText("C: "+datas.get(k + 1).getChina());
+            }else {
+                radioThree.setText("C: "+datas.get(k - 1).getChina());
+            }
+        }else if (listInt.get(0) < 14){
+            radioTwo.setText("B: "+datas.get(k).getChina());
+            if(k - 1 >= 0){
+                radioOne.setText("A: " + datas.get(k - 1).getChina());
+            }else {
+                radioOne.setText("A: "+datas.get(k + 2).getChina());
+            }
+            if(k + 1 < 20){
+                radioThree.setText("C: "+datas.get(k + 1).getChina());
+            }else {
+                radioThree.setText("C: "+datas.get(k - 1).getChina());
+            }
+        }else {
+            radioThree.setText("C: "+datas.get(k).getChina());
+            if(k - 1 >= 0){
+                radioTwo.setText("B: " + datas.get(k - 1).getChina());
+            }else {
+                radioTwo.setText("B: "+datas.get(k - 2).getChina());
+            }
+            if(k + 1 < 20){
+                radioOne.setText("A: "+datas.get(k + 1).getChina());
+            }else {
+                radioOne.setText("A: "+datas.get(k - 1).getChina());
+            }
+        }
     }
 
     @Override
