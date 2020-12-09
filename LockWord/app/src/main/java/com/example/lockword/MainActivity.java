@@ -271,6 +271,23 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * 还原单词与选项颜色
+     */
+    private void setTextColor(){
+        //还原单词选项的颜色
+        radioOne.setChecked(false);     //将选项设置为非选中状态
+        radioTwo.setChecked(false);
+        radioThree.setChecked(false);
+        //将选项的按钮设置为白色
+        radioOne.setTextColor(Color.parseColor("#FFFFFF"));
+        radioTwo.setTextColor(Color.parseColor("#FFFFFF"));
+        radioThree.setTextColor(Color.parseColor("#FFFFFF"));
+        //将单词和音标设置为白色
+        wordText.setTextColor(Color.parseColor("#FFFFFF"));
+        englishText.setTextColor(Color.parseColor("#FFFFFF"));
+    }
+
     @Override
     public void onSpeakBegin() {
 
