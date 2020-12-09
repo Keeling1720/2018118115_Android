@@ -9,12 +9,14 @@ import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.assetsbasedata.AssetsDatabaseManager;
 import com.iflytek.cloud.speech.SpeechConstant;
@@ -371,6 +373,39 @@ public class MainActivity extends AppCompatActivity
         wordText.setText(datas.get(k).getWord());       //设置单词
         englishText.setText(datas.get(k).getEnglish()); //设置音标
         setChina(datas, k);                             //设置单词的三个词义选项
+    }
+
+    /**
+     * 重写activity的onTouch方法
+     * 监听滑动事件
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            //当手指落下时坐标为(x1, y1)
+            x1 = event.getX();
+            y1 = event.getY();
+        }
+        if(event.getAction() == MotionEvent.ACTION_UP){
+            //手指离开时坐标为(x2, y2)
+            x2 = event.getX();
+            y2 = event.getY();
+            //向上滑动
+            if(y1 - y2 > 200){
+                //已掌握单词数量加1
+                int num = sharedPreferences.getInt("alreadMastered", 0) + 1;
+                editor.putInt("alreadyMastered", num);          //保存到数据库
+                editor.commit();                                //保存
+                Toast.makeText(this, "已掌握",
+                        Toast.LENGTH_SHORT).show();             //弹出提示
+                getNextData();                                  //获取下一题
+            }else if(x1 - x2 > 200){                    //向左滑动
+                getNextData();                          //下一题
+            }else if (x1 - x2 < 200){
+                unlocked();                             //解锁
+            }
+        }
+        return super.onTouchEvent(event);
     }
 
     /**
