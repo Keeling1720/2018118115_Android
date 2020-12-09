@@ -6,6 +6,7 @@ import android.app.KeyguardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -209,6 +210,23 @@ public class MainActivity extends AppCompatActivity
         CET4Entity data = new CET4Entity(Long.valueOf(dbDao.count()),
                 word, english, china, sign);
         dbDao.insertOrReplace(data);                //把这些字段存到数据库
+    }
+
+    /**
+     * 选对选项，选项变绿
+     * 选错选项，选项变红
+     */
+    private void btnGetText(String msg, RadioButton item){
+        //答对设置绿色，答错设置红色
+        if(msg.equals(datas.get(k).getChina())){
+            wordText.setTextColor(Color.GREEN);
+            englishText.setTextColor(Color.GREEN);
+            item.setTextColor(Color.GREEN);
+        }else {
+            wordText.setTextColor(Color.RED);
+            englishText.setTextColor(Color.RED);
+            item.setTextColor(Color.RED);
+        }
     }
 
     @Override
