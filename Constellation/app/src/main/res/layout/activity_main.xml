@@ -15,5 +15,15 @@
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/lightpink"/>
+    <RadioGroup
+        android:id="@+id/main_rg"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:background="@color/lightyellow"
+        android:layout_alignParentBottom="true"
+        android:padding="5dp">
 
+
+    </RadioGroup>
 </RelativeLayout>
