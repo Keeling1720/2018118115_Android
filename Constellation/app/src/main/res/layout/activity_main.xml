@@ -47,7 +47,12 @@
             android:drawableTop="@drawable/main_rb_me"
             android:text="@string/label_me"
             android:checked="false"/>
-
-
     </RadioGroup>
+    <LinearLayout
+        android:id="@+id/main_layout_center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/main_tv_title"
+        android:layout_above="@id/main_rg"/>
 </RelativeLayout>
