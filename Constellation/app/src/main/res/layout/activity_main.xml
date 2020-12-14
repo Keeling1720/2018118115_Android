@@ -29,6 +29,24 @@
             android:drawableTop="@drawable/main_rb_star"
             android:text="@string/label_star"
             android:checked="true"/>
+        <RadioButton
+            android:id="@+id/main_rb_parent"
+            style="@style/main_rb"
+            android:drawableTop="@drawable/main_rb_partner"
+            android:text="@string/label_partner"
+            android:checked="false"/>
+        <RadioButton
+            android:id="@+id/main_rb_luck"
+            style="@style/main_rb"
+            android:drawableTop="@drawable/main_rb_luck"
+            android:text="@string/label_luck"
+            android:checked="false"/>
+        <RadioButton
+            android:id="@+id/main_rb_me"
+            style="@style/main_rb"
+            android:drawableTop="@drawable/main_rb_me"
+            android:text="@string/label_me"
+            android:checked="false"/>
 
 
     </RadioGroup>
