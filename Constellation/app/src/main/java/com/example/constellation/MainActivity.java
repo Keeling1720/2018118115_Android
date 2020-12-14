@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         String json = AssetsUtils.getJsonFromAssets(this, "xzcontent/xzcontent.json");
         Gson gson = new Gson();
         StarInfoBean infoBean = gson.fromJson(json, StarInfoBean.class);
+        AssetsUtils.saveBitmapFromAssets(this, infoBean);
         return infoBean;
     }
 
