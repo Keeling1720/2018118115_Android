@@ -25,17 +25,11 @@
         android:padding="5dp">
         <RadioButton
             android:id="@+id/main_rb_star"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:button="@null"
+            style="@style/main_rb"
             android:drawableTop="@drawable/main_rb_star"
-            android:drawablePadding="2dp"
-            android:gravity="center"
-            android:textSize="12sp"
-            android:textColor="@drawable/main_rbtxt"
             android:text="@string/label_star"
             android:checked="true"/>
+
 
     </RadioGroup>
 </RelativeLayout>
