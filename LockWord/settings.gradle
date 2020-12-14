@@ -1,3 +1,0 @@
-include ':greendao'
-include ':app'
-rootProject.name = "LockWord"
