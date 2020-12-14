@@ -5,10 +5,18 @@ import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.example.constellation.bean.StarInfoBean;
+
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class AssetsUtils {
+    private static Map<String, Bitmap> logoImgMap;
+    private static Map<String, Bitmap> contentlogoImgMap;
+
     /**
      * 读取assets文件夹当中的内容，存放到字符串中
      */
@@ -54,5 +62,24 @@ public class AssetsUtils {
             e.printStackTrace();
         }
         return bitmap;
+    }
+
+    /**
+     * @des 将Assets文件夹当中的图片读取，放置到内存中，便于管理
+     */
+    public static void saveBitmapFromAssets(Context context, StarInfoBean starInfoBean){
+        logoImgMap = new HashMap<>();
+        contentlogoImgMap = new HashMap<>();
+        List<StarInfoBean.StarinfoBean> starList = starInfoBean.getStarinfo();
+        for (int i = 0; i < starList.size(); i++){
+            String logoname = starList.get(i).getLogoname();
+            String filename = "xzlogo/"+logoname+".png";
+            Bitmap logoBm = getBitmapFromAssets(context, filename);
+            logoImgMap.put(logoname, logoBm);
+
+            String contentName = "xzcontentlogo/" + logoname + ".png";
+            Bitmap bitmap = getBitmapFromAssets(context, filename);
+            contentlogoImgMap.put(logoname, bitmap);
+        }
     }
 }
