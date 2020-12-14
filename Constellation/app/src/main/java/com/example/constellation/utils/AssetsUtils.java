@@ -2,6 +2,8 @@ package com.example.constellation.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -34,5 +36,23 @@ public class AssetsUtils {
             e.printStackTrace();
         }
         return null;
+    }
+
+    /**
+     * 读取Assets文件夹下的图片，返回Bitmap对象
+     */
+    public static Bitmap getBitmapFromAssets(Context context, String filename){
+        Bitmap bitmap = null;
+        //获取文件夹管理者
+        AssetManager assetManager = context.getResources().getAssets();
+        try {
+            InputStream is = assetManager.open(filename);
+            //通过位图管理器，将输入流转化成位图对象
+            bitmap = BitmapFactory.decodeStream(is);
+            is.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return bitmap;
     }
 }
