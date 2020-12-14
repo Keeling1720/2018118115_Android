@@ -3,7 +3,7 @@ package com.example.constellation.bean;
 import java.io.Serializable;
 import java.util.List;
 
-public class StartInfoBean implements Serializable {
+public class StarInfoBean implements Serializable {
 
     private List<StarinfoBean> starinfo;
 
