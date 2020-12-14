@@ -82,4 +82,12 @@ public class AssetsUtils {
             contentlogoImgMap.put(logoname, bitmap);
         }
     }
+
+    public static Map<String, Bitmap> getLogoImgMap(){
+        return logoImgMap;
+    }
+
+    public static Map<String, Bitmap> getContentlogoImgMap(){
+        return contentlogoImgMap;
+    }
 }
