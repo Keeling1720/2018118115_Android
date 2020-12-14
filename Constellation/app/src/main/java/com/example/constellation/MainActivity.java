@@ -57,19 +57,33 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        FragmentTransaction transaction = manager.beginTransaction();
         switch (checkedId){
             case R.id.main_rb_star:
-
+                transaction.hide(partnerFrag);
+                transaction.hide(luckFrag);
+                transaction.hide(meFrag);
+                transaction.show(starFrag);
                 break;
             case R.id.main_rb_parent:
-
+                transaction.hide(starFrag);
+                transaction.hide(luckFrag);
+                transaction.hide(meFrag);
+                transaction.show(partnerFrag);
                 break;
             case R.id.main_rb_luck:
-
+                transaction.hide(starFrag);
+                transaction.hide(partnerFrag);
+                transaction.hide(meFrag);
+                transaction.show(luckFrag);
                 break;
             case R.id.main_rb_me:
-
+                transaction.hide(starFrag);
+                transaction.hide(partnerFrag);
+                transaction.hide(luckFrag);
+                transaction.show(meFrag);
                 break;
         }
+        transaction.commit();
     }
 }
