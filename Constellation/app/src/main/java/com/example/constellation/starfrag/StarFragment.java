@@ -48,7 +48,23 @@ public class StarFragment extends Fragment {
         StarBaseAdapter starBaseAdapter = new StarBaseAdapter(getContext(), mDatas);
         starGv.setAdapter(starBaseAdapter);
         initPager();
+        setVPListener();
         return view;
+    }
+
+    /**
+     * 设置viewpager的监听器函数
+     */
+    private void setVPListener() {
+        starVp.addOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener(){
+            @Override
+            public void onPageSelected(int position) {
+                for(int i = 0; i < pointList.size(); i++){
+                    pointList.get(i).setImageResource(R.mipmap.point_normal);
+                }
+                pointList.get(position).setImageResource(R.mipmap.point_focus);
+            }
+        });
     }
 
     /**
