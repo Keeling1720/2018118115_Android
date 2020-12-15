@@ -18,7 +18,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.constellation.R;
-import com.example.constellation.bean.StarInfoBean;
+import com.example.constellation.bean.StarBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class StarFragment extends Fragment {
     ViewPager starVp;
     GridView starGv;
     LinearLayout pointLayout;
-    private List<StarInfoBean.StarinfoBean> mDatas;
+    private List<StarBean.StarinfoBean> mDatas;
     //声明图片数组
     int[] imgIds= {R.mipmap.pic_guanggao, R.mipmap.pic_star};
     //声明ViewPager的数据源
@@ -66,7 +66,7 @@ public class StarFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_star, container, false);
         initView(view);
         Bundle bundle = getArguments();
-        StarInfoBean infoBean = (StarInfoBean) bundle.getSerializable("info");
+        StarBean infoBean = (StarBean) bundle.getSerializable("info");
         mDatas = infoBean.getStarinfo();    //获取关于星座信息的集合数据
         //创建适配器
         StarBaseAdapter starBaseAdapter = new StarBaseAdapter(getContext(), mDatas);
@@ -86,7 +86,7 @@ public class StarFragment extends Fragment {
         starGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                StarInfoBean.StarinfoBean bean =  mDatas.get(position);
+                StarBean.StarinfoBean bean =  mDatas.get(position);
                 Intent intent = new Intent(getContext(), StarAnalysisActivity.class);
                 intent.putExtra("star", bean);
                 startActivity(intent);

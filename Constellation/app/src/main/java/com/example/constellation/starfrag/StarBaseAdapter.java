@@ -9,7 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.constellation.R;
-import com.example.constellation.bean.StarInfoBean;
+import com.example.constellation.bean.StarBean;
 import com.example.constellation.utils.AssetsUtils;
 
 import java.util.List;
@@ -19,10 +19,10 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StarBaseAdapter extends BaseAdapter {
     Context context;
-    List<StarInfoBean.StarinfoBean> mDatas;
+    List<StarBean.StarinfoBean> mDatas;
     Map<String, Bitmap> logoMap;
 
-    public StarBaseAdapter(Context context, List<StarInfoBean.StarinfoBean> mDatas){
+    public StarBaseAdapter(Context context, List<StarBean.StarinfoBean> mDatas){
         this.context = context;
         this.mDatas = mDatas;
         logoMap = AssetsUtils.getLogoImgMap();
@@ -55,7 +55,7 @@ public class StarBaseAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         //获取指定位置的数据
-        StarInfoBean.StarinfoBean bean = mDatas.get(position);
+        StarBean.StarinfoBean bean = mDatas.get(position);
         holder.tv.setText(bean.getName());
         //获得图片的名称，根据名称在内存中进行查找
         String logoname = bean.getLogoname();
