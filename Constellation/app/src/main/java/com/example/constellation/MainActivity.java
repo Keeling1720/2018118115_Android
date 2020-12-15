@@ -9,6 +9,10 @@ import android.os.Bundle;
 import android.widget.RadioGroup;
 
 import com.example.constellation.bean.StarInfoBean;
+import com.example.constellation.luckfrag.LuckFragment;
+import com.example.constellation.mefrag.MeFragment;
+import com.example.constellation.partnerfrag.PartnerFragment;
+import com.example.constellation.starfrag.StarFragment;
 import com.example.constellation.utils.AssetsUtils;
 import com.google.gson.Gson;
 
