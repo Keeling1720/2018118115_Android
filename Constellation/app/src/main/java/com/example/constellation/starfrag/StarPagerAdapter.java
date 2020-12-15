@@ -34,7 +34,7 @@ public class StarPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = imgList.get(position);
         container.addView(imageView);
-        return super.instantiateItem(container, position);
+        return imageView;
     }
 
     @Override
