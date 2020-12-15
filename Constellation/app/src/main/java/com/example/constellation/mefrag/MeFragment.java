@@ -15,10 +15,6 @@ import com.example.constellation.R;
  */
 public class MeFragment extends Fragment {
 
-    public MeFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

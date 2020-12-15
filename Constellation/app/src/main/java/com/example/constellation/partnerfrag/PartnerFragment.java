@@ -15,10 +15,6 @@ import com.example.constellation.R;
  */
 public class PartnerFragment extends Fragment {
 
-    public PartnerFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
