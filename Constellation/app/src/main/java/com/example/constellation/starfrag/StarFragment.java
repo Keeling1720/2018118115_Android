@@ -33,6 +33,7 @@ public class StarFragment extends Fragment {
     List<ImageView> ivList;
     //声明管理指示器小圆点的集合
     List<ImageView> pointList;
+    StarPagerAdapter starPagerAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,7 +81,8 @@ public class StarFragment extends Fragment {
         }
         //默认第一个小圆点是获取焦点状态
         pointList.get(0).setImageResource(R.mipmap.point_focus);
-
+        starPagerAdapter = new StarPagerAdapter(getContext(), ivList);
+        starVp.setAdapter(starPagerAdapter);
     }
 
     /* 初始化控件操作*/
