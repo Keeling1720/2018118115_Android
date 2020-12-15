@@ -48,7 +48,7 @@ public class AnalysisBaseAdapter extends BaseAdapter {
         StarAnalysisBean bean = mDatas.get(position);
         holder.titleTv.setText(bean.getTitle());
         holder.contentTv.setText(bean.getContent());
-        holder.contentTv.setBackgroundColor(bean.getColor());
+        holder.contentTv.setBackgroundResource(bean.getColor());
         return convertView;
     }
 
