@@ -69,6 +69,9 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
         mDatas.add(sab7);
         mDatas.add(sab8);
         mDatas.add(sab9);
+
+        //数据源发生变化，提示适配器更新
+        adapter.notifyDataSetChanged();
     }
 
     /**
