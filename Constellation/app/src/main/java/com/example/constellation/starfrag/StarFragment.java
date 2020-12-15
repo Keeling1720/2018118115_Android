@@ -2,9 +2,12 @@ package com.example.constellation.starfrag;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +37,25 @@ public class StarFragment extends Fragment {
     //声明管理指示器小圆点的集合
     List<ImageView> pointList;
     StarPagerAdapter starPagerAdapter;
+    //完成定时装置，实现自动滑动
+    Handler handler = new Handler(){
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            if(msg.what == 1){
+                //获取当前Viewpager显示的页面
+                int currentItem = starVp.getCurrentItem();
+                //判断是否为最后一张，如果是最后一张回到第一张，否者显示下一张
+                if(currentItem == ivList.size() - 1){
+                    starVp.setCurrentItem(0);
+                }else {
+                     currentItem++;
+                     starVp.setCurrentItem(currentItem);
+                }
+                //形成循环发送，接受消息的效果，在接受消息的同时，也进行消息发送
+                handler.sendEmptyMessageDelayed(1, 5000);
+            }
+        }
+    };
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,6 +71,8 @@ public class StarFragment extends Fragment {
         starGv.setAdapter(starBaseAdapter);
         initPager();
         setVPListener();
+        //每五秒发送一次通知，切换图片
+        handler.sendEmptyMessageDelayed(1,5000);
         return view;
     }
 
