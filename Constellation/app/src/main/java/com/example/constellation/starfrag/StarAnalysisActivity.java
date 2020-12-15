@@ -15,6 +15,8 @@ import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
 import com.example.constellation.utils.AssetsUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -28,6 +30,9 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
     StarBean.StarinfoBean bean;
     private Map<String, Bitmap> contentlogoImgMap;
     private TextView footerTv;
+    private AnalysisBaseAdapter adapter;
+    List<StarAnalysisBean> mDatas;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +41,9 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
         Intent intent = getIntent();
         bean = (StarBean.StarinfoBean) intent.getSerializableExtra("star");
         initView();
-
+        mDatas = new ArrayList<>(); //初始化显示在ListView上的数据源
+        adapter = new AnalysisBaseAdapter(this, mDatas);
+        analysisLv.setAdapter(adapter);
     }
 
     /**
@@ -53,7 +60,7 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
         View footerView = LayoutInflater.from(this).inflate(R.layout.footer_star_analysis, null);
         analysisLv.addFooterView(footerView);
         footerTv = footerView.findViewById(R.id.footerstar_tv_info);
-
+        //将数据进行显示
         titleTv.setText("星座详情");
         backIv.setOnClickListener(this);
         nameTv.setText(bean.getName());
