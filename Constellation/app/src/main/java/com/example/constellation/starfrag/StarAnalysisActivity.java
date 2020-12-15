@@ -3,6 +3,7 @@ package com.example.constellation.starfrag;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,6 +12,9 @@ import android.widget.TextView;
 
 import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
+import com.example.constellation.utils.AssetsUtils;
+
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -21,7 +25,7 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
     TextView nameTv, dateTv;
     ListView analysisLv;
     StarBean.StarinfoBean bean;
-
+    private Map<String, Bitmap> contentlogoImgMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +50,11 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
 
         titleTv.setText("星座详情");
         backIv.setOnClickListener(this);
-
+        nameTv.setText(bean.getName());
+        dateTv.setText(bean.getDate());
+        contentlogoImgMap = AssetsUtils.getContentlogoImgMap();
+        Bitmap bitmap = contentlogoImgMap.get(bean.getLogoname());
+        iconIv.setImageBitmap(bitmap);
     }
 
     @Override
