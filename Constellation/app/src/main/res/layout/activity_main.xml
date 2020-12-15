@@ -14,7 +14,7 @@
         android:gravity="center"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/lightpink"/>
+        android:textColor="@color/pink"/>
     <RadioGroup
         android:id="@+id/main_rg"
         android:layout_width="match_parent"
