@@ -59,6 +59,6 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-
+        finish();
     }
 }
