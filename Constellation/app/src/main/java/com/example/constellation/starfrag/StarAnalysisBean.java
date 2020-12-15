@@ -5,6 +5,12 @@ public class StarAnalysisBean {
     private String content;
     private int color;
 
+    public StarAnalysisBean(String title, String content, int color) {
+        this.title = title;
+        this.content = content;
+        this.color = color;
+    }
+
     public String getTitle() {
         return title;
     }
