@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,6 +27,7 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
     ListView analysisLv;
     StarBean.StarinfoBean bean;
     private Map<String, Bitmap> contentlogoImgMap;
+    private TextView footerTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +49,10 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
         nameTv = findViewById(R.id.staranalysis_tv_name);
         dateTv = findViewById(R.id.staranalysis_tv_date);
         analysisLv = findViewById(R.id.staranalysis_lv);
+        //为ListView添加底部布局
+        View footerView = LayoutInflater.from(this).inflate(R.layout.footer_star_analysis, null);
+        analysisLv.addFooterView(footerView);
+        footerTv = footerView.findViewById(R.id.footerstar_tv_info);
 
         titleTv.setText("星座详情");
         backIv.setOnClickListener(this);
