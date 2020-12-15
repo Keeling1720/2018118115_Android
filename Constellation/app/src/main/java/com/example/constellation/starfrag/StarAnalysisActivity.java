@@ -26,7 +26,9 @@ public class StarAnalysisActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_star_analysis);
-
+        //获取上级页面传过来的数据
+        Intent intent = getIntent();
+        bean = (StarBean.StarinfoBean) intent.getSerializableExtra("star");
         initView();
 
     }
