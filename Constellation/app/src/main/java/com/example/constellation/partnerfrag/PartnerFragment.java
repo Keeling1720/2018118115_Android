@@ -1,5 +1,6 @@
 package com.example.constellation.partnerfrag;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 
@@ -87,7 +88,16 @@ public class PartnerFragment extends Fragment implements View.OnClickListener, A
 
                 break;
             case R.id.partnerfrag_btn_analysis:
-
+                //获取Spanner选中的位置
+                int manSelPos = manSp.getSelectedItemPosition();
+                int womanSelPos = womanSp.getSelectedItemPosition();
+                //跳转，传到星座配对详情界面
+                Intent intent = new Intent(getContext(), PartnerAnalysisActivity.class);
+                intent.putExtra("man_name", infoList.get(manSelPos).getName());
+                intent.putExtra("man_logoname", infoList.get(manSelPos).getLogoname());
+                intent.putExtra("woman_name", infoList.get(womanSelPos).getName());
+                intent.putExtra("woman_name", infoList.get(womanSelPos).getLogoname());
+                startActivity(intent);
                 break;
         }
     }
