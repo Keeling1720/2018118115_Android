@@ -70,7 +70,7 @@
             android:layout_gravity="center_vertical" />
 
     </LinearLayout>
-    
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,7 +90,7 @@
         android:id="@+id/partnerfrag_btn_analysis"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:text="@string/partner_btn_analysis"
+        android:text="@string/partner_analysis"
         android:layout_marginTop="20dp"
         android:background="@drawable/dock"/>
 

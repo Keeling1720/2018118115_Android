@@ -8,7 +8,5 @@
     <string name="woman">女生</string>
     <string name="partner_info">分别先您的星座和对方星座，点击分析即可。</string>
     <string name="partner_btn_prize">每日抽奖</string>
-    <string name="partner_analysis">开始配对分析</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="partner_btn_analysis">开始配对分析</string>
 </resources>
