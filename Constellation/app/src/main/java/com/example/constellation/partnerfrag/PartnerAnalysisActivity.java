@@ -3,11 +3,15 @@ package com.example.constellation.partnerfrag;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.constellation.R;
+import com.example.constellation.utils.AssetsUtils;
+
+import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -33,6 +37,17 @@ public class PartnerAnalysisActivity extends AppCompatActivity {
         woman_name = intent.getStringExtra("woman_name");
         man_logoname = intent.getStringExtra("man_logoname");
         woman_logoname = intent.getStringExtra("woman_logoname");
+        //设置能够显示的控件信息
+        Map<String, Bitmap> contentlogoImgMap = AssetsUtils.getContentlogoImgMap();
+        Bitmap man_bitmap = contentlogoImgMap.get(man_logoname);
+        manIv.setImageBitmap(man_bitmap);
+        Bitmap woman_bitmap = contentlogoImgMap.get(woman_logoname);
+        womanIv.setImageBitmap(woman_bitmap);
+
+        manTv.setText(man_name);
+        womanTv.setText(woman_name);
+        pdTv.setText("星座配对- "+man_name+"和"+woman_name+"配对");
+        vsTv.setText(man_name + " vs "+ woman_name);
     }
 
     private void initView() {
