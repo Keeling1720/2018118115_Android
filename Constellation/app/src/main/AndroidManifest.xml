@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme">
-        <activity android:name=".starfrag.StarAnalysisActivity"></activity>
+        <activity android:name=".partnerfrag.PartnerAnalysisActivity"></activity>
+        <activity android:name=".starfrag.StarAnalysisActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
