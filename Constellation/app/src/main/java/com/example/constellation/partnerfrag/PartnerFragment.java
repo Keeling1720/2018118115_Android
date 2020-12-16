@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -24,6 +25,7 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
     Spinner manSp, womanSp;
     Button prizeBtn, analysisBtn;
     private List<StarBean.StarinfoBean> infoList;
+    List<String> nameList;      //存放星座名称的集合
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,6 +36,17 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
         Bundle bundle = getArguments();
         StarBean starBean = (StarBean) bundle.getSerializable("info");
         infoList =  starBean.getStarinfo();
+        //获取适配器所需要的数据源
+        for (int i = 0; i < infoList.size(); i++){
+            String name = infoList.get(i).getName();
+            nameList.add(name);
+        }
+        //创建适配器
+        ArrayAdapter adapter =  new ArrayAdapter<String>(getContext(), R.layout.item_partner_sp, nameList);
+        //设置适配器
+        manSp.setAdapter(adapter);
+        womanSp.setAdapter(adapter);
+
 
         return view;
     }
