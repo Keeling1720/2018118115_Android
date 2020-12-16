@@ -19,7 +19,8 @@
             android:id="@+id/partneranalysis_iv_man"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
+            android:layout_marginRight="10dp"
             app:civ_border_width="2dp"
             app:civ_border_color="@color/lightblue"
             android:src="@mipmap/ic_launcher"/>
@@ -34,7 +35,8 @@
             android:id="@+id/partneranalysis_iv_woman"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="3"
+            android:layout_marginLeft="10dp"
             app:civ_border_width="2dp"
             app:civ_border_color="@color/lightpink"
             android:src="@mipmap/ic_launcher"/>
@@ -74,7 +76,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="20dp">
             <TextView
                 android:id="@+id/prtneranalysis_tv_pd"
                 android:layout_width="match_parent"
