@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 
 import com.example.constellation.R;
+import com.example.constellation.bean.StarBean;
+
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,12 +23,18 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
     ImageView manIv, womanIv;
     Spinner manSp, womanSp;
     Button prizeBtn, analysisBtn;
+    private List<StarBean.StarinfoBean> infoList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_partner, container, false);
         initView(view);
+        //获取Activitu传过来的数据
+        Bundle bundle = getArguments();
+        StarBean starBean = (StarBean) bundle.getSerializable("info");
+        infoList =  starBean.getStarinfo();
+
         return view;
     }
 
