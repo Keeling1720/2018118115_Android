@@ -9,4 +9,5 @@
     <string name="partner_info">分别输入您对方的星座，点击分析即可。</string>
     <string name="partner_btn_prize">每日抽奖</string>
     <string name="partner_btn_analysis">开始配对分析</string>
+    <string name="baiyangzuo">白羊座</string>
 </resources>
