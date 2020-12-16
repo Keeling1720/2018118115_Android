@@ -1,5 +1,6 @@
 package com.example.constellation.partnerfrag;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -14,8 +15,10 @@ import android.widget.Spinner;
 
 import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
+import com.example.constellation.utils.AssetsUtils;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,6 +29,7 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
     Button prizeBtn, analysisBtn;
     private List<StarBean.StarinfoBean> infoList;
     List<String> nameList;      //存放星座名称的集合
+    private Map<String, Bitmap> logoImgMap;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,7 +51,12 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
         manSp.setAdapter(adapter);
         womanSp.setAdapter(adapter);
 
-
+        //获取第一个图标显示在imageview
+        String logoname = infoList.get(0).getLogoname();
+        logoImgMap = AssetsUtils.getContentlogoImgMap();
+        Bitmap bitmap = logoImgMap.get(logoname);
+        manIv.setImageBitmap(bitmap);
+        womanIv.setImageBitmap(bitmap);
         return view;
     }
 
