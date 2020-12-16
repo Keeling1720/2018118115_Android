@@ -16,7 +16,7 @@ import com.example.constellation.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PartnerFragment extends Fragment {
+public class PartnerFragment extends Fragment implements View.OnClickListener{
     ImageView manIv, womanIv;
     Spinner manSp, womanSp;
     Button prizeBtn, analysisBtn;
@@ -39,5 +39,20 @@ public class PartnerFragment extends Fragment {
         womanSp = view.findViewById(R.id.partnerfrag_sp_woman);
         prizeBtn = view.findViewById(R.id.partnerfrag_btn_prize);
         analysisBtn = view.findViewById(R.id.partnerfrag_btn_analysis);
+        //设置按钮的监听器
+        prizeBtn.setOnClickListener(this);
+        analysisBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.partnerfrag_btn_prize:
+
+                break;
+            case R.id.partnerfrag_btn_analysis:
+
+                break;
+        }
     }
 }
