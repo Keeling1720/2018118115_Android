@@ -78,7 +78,7 @@ public class AssetsUtils {
             logoImgMap.put(logoname, logoBm);
 
             String contentName = "xzcontentlogo/" + logoname + ".png";
-            Bitmap bitmap = getBitmapFromAssets(context, filename);
+            Bitmap bitmap = getBitmapFromAssets(context, contentName);
             contentlogoImgMap.put(logoname, bitmap);
         }
     }
