@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,7 +25,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PartnerFragment extends Fragment implements View.OnClickListener{
+public class PartnerFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener{
     ImageView manIv, womanIv;
     Spinner manSp, womanSp;
     Button prizeBtn, analysisBtn;
@@ -75,6 +76,8 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
         //设置按钮的监听器
         prizeBtn.setOnClickListener(this);
         analysisBtn.setOnClickListener(this);
+        manSp.setOnItemSelectedListener(this);
+        womanSp.setOnItemSelectedListener(this);
     }
 
     @Override
@@ -87,5 +90,26 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
 
                 break;
         }
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()){
+            case R.id.partnerfrag_sp_man:
+                String logoname = infoList.get(position).getLogoname();
+                Bitmap bitmap = logoImgMap.get(logoname);
+                manIv.setImageBitmap(bitmap);
+                break;
+            case R.id.partnerfrag_sp_woman:
+                logoname = infoList.get(position).getLogoname();
+                bitmap = logoImgMap.get(logoname);
+                womanIv.setImageBitmap(bitmap);
+                break;
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
