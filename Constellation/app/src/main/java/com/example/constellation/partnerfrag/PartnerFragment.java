@@ -96,7 +96,7 @@ public class PartnerFragment extends Fragment implements View.OnClickListener, A
                 intent.putExtra("man_name", infoList.get(manSelPos).getName());
                 intent.putExtra("man_logoname", infoList.get(manSelPos).getLogoname());
                 intent.putExtra("woman_name", infoList.get(womanSelPos).getName());
-                intent.putExtra("woman_name", infoList.get(womanSelPos).getLogoname());
+                intent.putExtra("woman_logoname", infoList.get(womanSelPos).getLogoname());
                 startActivity(intent);
                 break;
         }
