@@ -48,7 +48,7 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
             nameList.add(name);
         }
         //创建适配器
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.item_partner_sp, nameList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.item_partner_sp,R.id.item_partner_tv, nameList);
         //设置适配器
         manSp.setAdapter(adapter);
         womanSp.setAdapter(adapter);

@@ -6,7 +6,7 @@
     <string name="label_me">我的</string>
     <string name="man">男生</string>
     <string name="woman">女生</string>
-    <string name="partner_info">分别先您的星座和对方星座，点击分析即可。</string>
+    <string name="partner_info">分别输入您对方的星座，点击分析即可。</string>
     <string name="partner_btn_prize">每日抽奖</string>
     <string name="partner_btn_analysis">开始配对分析</string>
 </resources>
