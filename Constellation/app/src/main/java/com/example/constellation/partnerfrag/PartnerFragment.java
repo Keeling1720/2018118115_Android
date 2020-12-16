@@ -66,12 +66,12 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
      * 初始化控件
      */
     private void initView(View view) {
-        manIv = view.findViewById(R.id.parnterfrag_iv_man);
-        womanIv = view.findViewById(R.id.parnterfrag_iv_woman);
-        manSp = view.findViewById(R.id.parnterfrag_sp_man);
-        womanSp = view.findViewById(R.id.parnterfrag_sp_woman);
-        prizeBtn = view.findViewById(R.id.parnterfrag_btn_prize);
-        analysisBtn = view.findViewById(R.id.parnterfrag_btn_analysis);
+        manIv = view.findViewById(R.id.partnerfrag_iv_man);
+        womanIv = view.findViewById(R.id.partnerfrag_iv_woman);
+        manSp = view.findViewById(R.id.partnerfrag_sp_man);
+        womanSp = view.findViewById(R.id.partnerfrag_sp_woman);
+        prizeBtn = view.findViewById(R.id.partnerfrag_btn_prize);
+        analysisBtn = view.findViewById(R.id.partnerfrag_btn_analysis);
         //设置按钮的监听器
         prizeBtn.setOnClickListener(this);
         analysisBtn.setOnClickListener(this);
@@ -80,10 +80,10 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.parnterfrag_btn_prize:
+            case R.id.partnerfrag_btn_prize:
 
                 break;
-            case R.id.parnterfrag_btn_analysis:
+            case R.id.partnerfrag_btn_analysis:
 
                 break;
         }
