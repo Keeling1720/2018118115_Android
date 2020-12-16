@@ -17,6 +17,7 @@ import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
 import com.example.constellation.utils.AssetsUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -40,13 +41,14 @@ public class PartnerFragment extends Fragment implements View.OnClickListener{
         Bundle bundle = getArguments();
         StarBean starBean = (StarBean) bundle.getSerializable("info");
         infoList =  starBean.getStarinfo();
+        nameList = new ArrayList<>();
         //获取适配器所需要的数据源
         for (int i = 0; i < infoList.size(); i++){
             String name = infoList.get(i).getName();
             nameList.add(name);
         }
         //创建适配器
-        ArrayAdapter adapter =  new ArrayAdapter<String>(getContext(), R.layout.item_partner_sp, nameList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), R.layout.item_partner_sp, nameList);
         //设置适配器
         manSp.setAdapter(adapter);
         womanSp.setAdapter(adapter);
