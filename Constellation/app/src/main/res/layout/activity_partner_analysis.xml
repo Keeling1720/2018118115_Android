@@ -109,14 +109,14 @@
             <TextView
                 android:id="@+id/prtneranalysis_tv_jx"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="16sp"
                 android:layout_gravity="center|left"/>
             <TextView
                 android:id="@+id/prtneranalysis_tv_zy"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textSize="16sp"
                 android:layout_gravity="center|left"/>
