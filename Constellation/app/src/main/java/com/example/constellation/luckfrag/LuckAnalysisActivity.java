@@ -1,6 +1,7 @@
 package com.example.constellation.luckfrag;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -74,11 +75,11 @@ public class LuckAnalysisActivity extends AppCompatActivity implements View.OnCl
      * 整理数据到集合中
      */
     private void addDataToList(LuckBean luckBean) {
-        LuckItemBean lib1 = new LuckItemBean("综合运势", luckBean.getMima().getText().get(0),R.color.lightblue);
-        LuckItemBean lib2 = new LuckItemBean("爱情运势", luckBean.getLove().get(0), R.color.lightpink);
-        LuckItemBean lib3 = new LuckItemBean("事业学业", luckBean.getCareer().get(0), R.color.orange);
-        LuckItemBean lib4 = new LuckItemBean("健康运势", luckBean.getHealth().get(0), R.color.lightgreen);
-        LuckItemBean lib5 = new LuckItemBean("财富运势", luckBean.getFinance().get(0), R.color.lightyellow);
+        LuckItemBean lib1 = new LuckItemBean("综合运势", luckBean.getMima().getText().get(0), Color.BLUE);
+        LuckItemBean lib2 = new LuckItemBean("爱情运势", luckBean.getLove().get(0), Color.MAGENTA);
+        LuckItemBean lib3 = new LuckItemBean("事业学业", luckBean.getCareer().get(0), Color.RED);
+        LuckItemBean lib4 = new LuckItemBean("健康运势", luckBean.getHealth().get(0), Color.GREEN);
+        LuckItemBean lib5 = new LuckItemBean("财富运势", luckBean.getFinance().get(0), Color.YELLOW);
         mDatas.add(lib1);
         mDatas.add(lib2);
         mDatas.add(lib3);
