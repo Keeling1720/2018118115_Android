@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">星梦缘</string>
+    <string name="app_name">pick星盘</string>
     <string name="label_star">星座</string>
     <string name="label_partner">配对</string>
     <string name="label_luck">运势</string>
