@@ -3,9 +3,6 @@ package com.example.constellation.partnerfrag;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
+
+import androidx.fragment.app.Fragment;
 
 import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
@@ -29,7 +28,7 @@ import java.util.Map;
 public class PartnerFragment extends Fragment implements View.OnClickListener, AdapterView.OnItemSelectedListener{
     ImageView manIv, womanIv;
     Spinner manSp, womanSp;
-    Button prizeBtn, analysisBtn;
+    Button analysisBtn;
     private List<StarBean.StarinfoBean> infoList;
     List<String> nameList;      //存放星座名称的集合
     private Map<String, Bitmap> logoImgMap;
@@ -72,10 +71,8 @@ public class PartnerFragment extends Fragment implements View.OnClickListener, A
         womanIv = view.findViewById(R.id.partnerfrag_iv_woman);
         manSp = view.findViewById(R.id.partnerfrag_sp_man);
         womanSp = view.findViewById(R.id.partnerfrag_sp_woman);
-        prizeBtn = view.findViewById(R.id.partnerfrag_btn_prize);
         analysisBtn = view.findViewById(R.id.partnerfrag_btn_analysis);
         //设置按钮的监听器
-        prizeBtn.setOnClickListener(this);
         analysisBtn.setOnClickListener(this);
         manSp.setOnItemSelectedListener(this);
         womanSp.setOnItemSelectedListener(this);
@@ -84,9 +81,6 @@ public class PartnerFragment extends Fragment implements View.OnClickListener, A
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.partnerfrag_btn_prize:
-
-                break;
             case R.id.partnerfrag_btn_analysis:
                 //获取Spanner选中的位置
                 int manSelPos = manSp.getSelectedItemPosition();

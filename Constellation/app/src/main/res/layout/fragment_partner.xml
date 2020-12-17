@@ -79,20 +79,11 @@
         android:text="@string/partner_info"/>
 
     <Button
-        android:id="@+id/partnerfrag_btn_prize"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="@string/partner_btn_prize"
-        android:layout_gravity="center"
-        android:layout_marginTop="150dp"
-        android:textStyle="bold"
-        android:background="@drawable/dock"/>
-    <Button
         android:id="@+id/partnerfrag_btn_analysis"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="@string/partner_btn_analysis"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="250dp"
         android:textStyle="bold"
         android:background="@drawable/dock"/>
 
