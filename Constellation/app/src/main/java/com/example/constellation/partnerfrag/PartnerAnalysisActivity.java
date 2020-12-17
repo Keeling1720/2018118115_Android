@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -19,7 +20,8 @@ import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDataAsyncTask.OnGetNetDataListener {
+public class PartnerAnalysisActivity extends AppCompatActivity
+        implements LoadDataAsyncTask.OnGetNetDataListener, View.OnClickListener {
     TextView manTv, womanTv, pdTv, vsTv, pfTv, bzTv, jxTv, zyTv, titleTv;
     CircleImageView manIv, womanIv;
     ImageView backIv;
@@ -73,7 +75,9 @@ public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDa
         jxTv = findViewById(R.id.prtneranalysis_tv_jx);
         zyTv = findViewById(R.id.prtneranalysis_tv_zy);
         titleTv = findViewById(R.id.title_tv);
+        titleTv.setText("配对详情");
         backIv = findViewById(R.id.title_iv_back);
+        backIv.setOnClickListener(this);
 
     }
 
@@ -87,6 +91,15 @@ public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDa
             bzTv.setText("配对比重: "+resultBean.getBizhong());
             jxTv.setText("恋爱建议:\n\n "+resultBean.getLianai());
             zyTv.setText("注意事项:\n\n"+resultBean.getZhuyi());
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.title_iv_back:
+                finish();
+                break;
         }
     }
 }
