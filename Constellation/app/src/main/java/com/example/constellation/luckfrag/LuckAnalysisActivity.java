@@ -25,6 +25,11 @@ public class LuckAnalysisActivity extends AppCompatActivity implements View.OnCl
         String name = intent.getStringExtra("name");
         //获取网址
         String luckURL = URLContent.getLuckURL(name);
+        initView(name);
+        //
+    }
+
+    private void initView(String name){
         //初始化控件
         luckLv = findViewById(R.id.luckanalysis_lv);
         nameTv = findViewById(R.id.title_tv);
