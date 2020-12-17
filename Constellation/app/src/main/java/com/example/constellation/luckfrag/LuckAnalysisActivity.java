@@ -64,7 +64,9 @@ public class LuckAnalysisActivity extends AppCompatActivity implements View.OnCl
             LuckBean luckBean = new Gson().fromJson(json, LuckBean.class);
             //为了显示在ListView上，重新整理数据成集合形式
             addDataToList(luckBean);
-
+            //设置适配器
+            LuckAnalysisAdapter adapter = new LuckAnalysisAdapter(this, mDatas);
+            luckLv.setAdapter(adapter);
         }
     }
 
