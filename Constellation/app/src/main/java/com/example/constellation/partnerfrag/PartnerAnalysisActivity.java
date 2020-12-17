@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,13 +13,14 @@ import com.example.constellation.R;
 import com.example.constellation.utils.AssetsUtils;
 import com.example.constellation.utils.LoadDataAsyncTask;
 import com.example.constellation.utils.URLContent;
+import com.google.gson.Gson;
 
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDataAsyncTask.OnGetNetDataListener {
-    TextView manTv, womanTv, pdTv, vsTv, pfTv, jxTv, zyTv, titleTv;
+    TextView manTv, womanTv, pdTv, vsTv, pfTv, bzTv, jxTv, zyTv, titleTv;
     CircleImageView manIv, womanIv;
     ImageView backIv;
     private String man_name, woman_name;
@@ -67,6 +69,7 @@ public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDa
         pdTv = findViewById(R.id.prtneranalysis_tv_pd);
         vsTv = findViewById(R.id.prtneranalysis_tv_vs);
         pfTv = findViewById(R.id.prtneranalysis_tv_pf);
+        bzTv = findViewById(R.id.prtneranalysis_tv_bz);
         jxTv = findViewById(R.id.prtneranalysis_tv_jx);
         zyTv = findViewById(R.id.prtneranalysis_tv_zy);
         titleTv = findViewById(R.id.title_tv);
@@ -76,6 +79,14 @@ public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDa
 
     @Override
     public void onSuccess(String json) {
-
+        //解析JSON数据
+        if (!TextUtils.isEmpty(json)){
+            PartnerAnalysisBean analysisBean = new Gson().fromJson(json, PartnerAnalysisBean.class);
+            PartnerAnalysisBean.ResultBean resultBean = analysisBean.getResult();
+            pfTv.setText("配对指数: "+resultBean.getZhishu()+" "+resultBean.getJieguo());
+            bzTv.setText("配对比重: "+resultBean.getBizhong());
+            jxTv.setText("恋爱建议:\n\n "+resultBean.getLianai());
+            zyTv.setText("注意事项:\n\n"+resultBean.getZhuyi());
+        }
     }
 }
