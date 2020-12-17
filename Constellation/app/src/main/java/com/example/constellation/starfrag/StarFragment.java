@@ -2,11 +2,6 @@ package com.example.constellation.starfrag;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Handler;
 import android.os.Message;
 import android.view.LayoutInflater;
@@ -16,6 +11,10 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.constellation.R;
 import com.example.constellation.bean.StarBean;
@@ -33,7 +32,7 @@ public class StarFragment extends Fragment {
     LinearLayout pointLayout;
     private List<StarBean.StarinfoBean> mDatas;
     //声明图片数组
-    int[] imgIds= {R.mipmap.pic_guanggao, R.mipmap.pic_star};
+    int[] imgIds= {R.mipmap.pic_one, R.mipmap.pic_two, R.mipmap.pic_three, R.mipmap.pic_four, R.mipmap.pic_five};
     //声明ViewPager的数据源
     List<ImageView> ivList;
     //声明管理指示器小圆点的集合
