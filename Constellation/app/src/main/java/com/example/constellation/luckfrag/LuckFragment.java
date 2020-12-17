@@ -21,6 +21,7 @@ import java.util.List;
 public class LuckFragment extends Fragment {
     GridView luckGv;
     List<StarBean.StarinfoBean> mDatas;
+    private LuckBaseAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -31,7 +32,11 @@ public class LuckFragment extends Fragment {
         Bundle bundle = getArguments();
         StarBean info = (StarBean) bundle.getSerializable("info");
         mDatas = info.getStarinfo();
-
+        //创建适配器对象
+        this.adapter = new LuckBaseAdapter(getContext(), mDatas);
+        adapter = this.adapter;
+        //设置适配器
+        luckGv.setAdapter(adapter);
         return view;
     }
 }
