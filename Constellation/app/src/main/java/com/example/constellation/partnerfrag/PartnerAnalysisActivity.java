@@ -10,12 +10,14 @@ import android.widget.TextView;
 
 import com.example.constellation.R;
 import com.example.constellation.utils.AssetsUtils;
+import com.example.constellation.utils.LoadDataAsyncTask;
+import com.example.constellation.utils.URLContent;
 
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class PartnerAnalysisActivity extends AppCompatActivity {
+public class PartnerAnalysisActivity extends AppCompatActivity implements LoadDataAsyncTask.OnGetNetDataListener {
     TextView manTv, womanTv, pdTv, vsTv, pfTv, jxTv, zyTv, titleTv;
     CircleImageView manIv, womanIv;
     ImageView backIv;
@@ -29,6 +31,13 @@ public class PartnerAnalysisActivity extends AppCompatActivity {
         initView();
         //获取上个界面传过来的数据
         getLastData();
+        //获取网络路径地址
+        String parentURL = URLContent.getPartnerURL(man_name, woman_name);
+        //加载网络数据
+        //创建自定义异步任务对象
+        LoadDataAsyncTask task = new LoadDataAsyncTask(this,this,true);
+        //执行异步任务
+        task.execute(parentURL);
     }
 
     private void getLastData() {
@@ -62,6 +71,11 @@ public class PartnerAnalysisActivity extends AppCompatActivity {
         zyTv = findViewById(R.id.prtneranalysis_tv_zy);
         titleTv = findViewById(R.id.title_tv);
         backIv = findViewById(R.id.title_iv_back);
+
+    }
+
+    @Override
+    public void onSuccess(String json) {
 
     }
 }
