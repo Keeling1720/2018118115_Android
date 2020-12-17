@@ -71,6 +71,6 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         //设置适配器
         LuckBaseAdapter adapter = new LuckBaseAdapter(getContext(), mDatas);
         dialogGv.setAdapter(adapter);
-
+        dialog.show();
     }
 }
