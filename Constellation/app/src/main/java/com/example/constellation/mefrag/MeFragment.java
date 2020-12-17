@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -63,7 +64,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     }
 
     private void showDialog() {
-        Dialog dialog = new Dialog(getContext());
+        final Dialog dialog = new Dialog(getContext());
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.me_dialog, null);
         dialog.setContentView(dialogView);
         dialog.setTitle("请选择您的星座");
@@ -76,7 +77,19 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         //设置点击弹出框的外部，可以取消弹出框
         dialog.setCanceledOnTouchOutside(true);
 
-
+        //设置Gridview每一项的点击事件
+        dialogGv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                StarBean.StarinfoBean bean = mDatas.get(position);
+                String name = bean.getName();
+                String logoname = bean.getLogoname();
+                nameTv.setText(name);
+                Bitmap bitmap = contentlogoImgMap.get(logoname);
+                iconIv.setImageBitmap(bitmap);
+                dialog.cancel();
+            }
+        });
         dialog.show();
     }
 }
