@@ -90,7 +90,7 @@ public class PartnerAnalysisActivity extends AppCompatActivity
             pfTv.setText("配对指数: "+resultBean.getZhishu()+" "+resultBean.getJieguo());
             bzTv.setText("配对比重: "+resultBean.getBizhong());
             jxTv.setText("恋爱建议:\n\n "+resultBean.getLianai());
-            zyTv.setText("注意事项:\n\n"+resultBean.getZhuyi());
+            zyTv.setText("注意事项:\n\n"+resultBean.getZhuyi()+"\n\n");
         }
     }
 
