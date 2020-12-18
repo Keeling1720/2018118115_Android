@@ -32,7 +32,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MeFragment extends Fragment implements View.OnClickListener{
     CircleImageView iconIv;
     TextView nameTv;
-    LinearLayout appLayout;
+    LinearLayout appLayout,functionLayout,updateLayout,todayFortuneLayout;
 
     private Map<String, Bitmap> contentlogoImgMap;
     private List<StarBean.StarinfoBean> mDatas;
@@ -65,9 +65,18 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         Bitmap bitmap = contentlogoImgMap.get(logoname);
         iconIv.setImageBitmap(bitmap);
         nameTv.setText(name);
-        //初始化关于界面并设置监听
+        //初始化关于布局并设置监听
         appLayout = view.findViewById(R.id.app_layout);
         appLayout.setOnClickListener(this);
+        //初始化功能介绍布局并设置监听
+        functionLayout = view.findViewById(R.id.function_layout);
+        functionLayout.setOnClickListener(this);
+        //初始化更新日志布局并设置监听
+        updateLayout = view.findViewById(R.id.update_layout);
+        updateLayout.setOnClickListener(this);
+        //初始化今日运势布局并设置监听
+        todayFortuneLayout = view.findViewById(R.id.today_fortune_layout);
+        todayFortuneLayout.setOnClickListener(this);
         return view;
     }
 
