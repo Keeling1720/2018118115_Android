@@ -1,6 +1,8 @@
 package com.example.constellation.mefrag;
 
 import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -31,6 +33,9 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     TextView nameTv;
     private Map<String, Bitmap> contentlogoImgMap;
     private List<StarBean.StarinfoBean> mDatas;
+    private SharedPreferences star_pref;
+    //保存选择的星座
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +43,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         Bundle bundle = getArguments();
         StarBean bean = (StarBean) bundle.getSerializable("info");
         mDatas = bean.getStarinfo();
+        star_pref = getContext().getSharedPreferences("star_pref", Context.MODE_PRIVATE);
     }
 
     @Override
@@ -46,11 +52,15 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.fragment_me, container, false);
         iconIv = view.findViewById(R.id.mefrag_iv);
         nameTv = view.findViewById(R.id.mefrag_tv_name);
+        iconIv.setOnClickListener(this);
         //进行初始化设置
         contentlogoImgMap = AssetsUtils.getContentlogoImgMap();
-        Bitmap bitmap = contentlogoImgMap.get("baiyang");
+        //读取共享参数当中保存的星座名称和Logo名称
+        String name = star_pref.getString("name", "白羊座");
+        String logoname = star_pref.getString("logoname","白羊");
+        Bitmap bitmap = contentlogoImgMap.get(logoname);
         iconIv.setImageBitmap(bitmap);
-        iconIv.setOnClickListener(this);
+        nameTv.setText(name);
         return view;
     }
 
