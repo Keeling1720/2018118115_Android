@@ -14,7 +14,7 @@ import com.example.constellation.R;
 
 public class WelcomeActivity extends AppCompatActivity {
     TextView tv;
-    int count = 5;
+    int count = 3;
 
     Handler handler = new Handler(){
         @Override
@@ -24,6 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 if (count == 0){
                     Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                     startActivity(intent);
+                    finish();
                 }else {
                     tv.setText(String.valueOf(count));
                     handler.sendEmptyMessageDelayed(1, 500);
