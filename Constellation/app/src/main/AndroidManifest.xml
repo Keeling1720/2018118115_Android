@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/TranslucentTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".home.GuideActivity"></activity>
+        <activity android:name=".mefrag.MeAnalysisActivity"></activity>
+        <activity android:name=".home.GuideActivity" />
         <activity android:name=".home.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
