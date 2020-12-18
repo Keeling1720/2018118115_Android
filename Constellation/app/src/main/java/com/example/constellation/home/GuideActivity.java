@@ -1,6 +1,8 @@
 package com.example.constellation.home;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -8,6 +10,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.constellation.MainActivity;
 import com.example.constellation.R;
 
 import java.util.ArrayList;
@@ -26,6 +29,21 @@ public class GuideActivity extends AppCompatActivity {
         guideVg = findViewById(R.id.guide_vp);
         mDatas = new ArrayList<>();
         initPager();
+        //为三个图片设置监听事件
+        setListener();
+    }
+
+    private void setListener() {
+        int size = mDatas.size();
+        ImageView view = mDatas.get(size - 1);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(GuideActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void initPager() {
