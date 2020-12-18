@@ -58,7 +58,7 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         contentlogoImgMap = AssetsUtils.getContentlogoImgMap();
         //读取共享参数当中保存的星座名称和Logo名称
         String name = star_pref.getString("name", "白羊座");
-        String logoname = star_pref.getString("logoname","白羊");
+        String logoname = star_pref.getString("logoname","baiyang");
         Bitmap bitmap = contentlogoImgMap.get(logoname);
         iconIv.setImageBitmap(bitmap);
         nameTv.setText(name);
