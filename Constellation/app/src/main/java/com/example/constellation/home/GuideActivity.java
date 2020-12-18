@@ -36,6 +36,9 @@ public class GuideActivity extends AppCompatActivity {
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
             imageView.setLayoutParams(lp);
             mDatas.add(imageView);
+            //创建并设置适配器
+            GuideAdapter adapter = new GuideAdapter(mDatas);
+            guideVg.setAdapter(adapter);
         }
     }
 }
