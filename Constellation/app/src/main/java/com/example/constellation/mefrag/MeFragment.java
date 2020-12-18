@@ -2,6 +2,7 @@ package com.example.constellation.mefrag;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -96,7 +97,9 @@ public class MeFragment extends Fragment implements View.OnClickListener{
                 showUpdateLogDialog();
                 break;
             case R.id.today_fortune_layout:
-
+                Intent intent = new Intent(getContext(), MeAnalysisActivity.class);
+                intent.putExtra("name", nameTv.getText());
+                startActivity(intent);
                 break;
         }
     }
