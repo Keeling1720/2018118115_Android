@@ -34,7 +34,8 @@ public class MeFragment extends Fragment implements View.OnClickListener{
     private Map<String, Bitmap> contentlogoImgMap;
     private List<StarBean.StarinfoBean> mDatas;
     private SharedPreferences star_pref;
-    //保存选择的星座
+    //保存选择的星座位置
+    int selPostion = 0;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,9 +98,22 @@ public class MeFragment extends Fragment implements View.OnClickListener{
                 nameTv.setText(name);
                 Bitmap bitmap = contentlogoImgMap.get(logoname);
                 iconIv.setImageBitmap(bitmap);
+                selPostion = position;      //保存选择的位置
                 dialog.cancel();
             }
         });
         dialog.show();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        StarBean.StarinfoBean bean = mDatas.get(selPostion);
+        String name = bean.getName();
+        String logoname = bean.getLogoname();
+        SharedPreferences.Editor editor = star_pref.edit();
+        editor.putString("name", name);
+        editor.putString("logoname", logoname);
+        editor.commit();
     }
 }
