@@ -89,8 +89,29 @@ public class MeFragment extends Fragment implements View.OnClickListener{
             case R.id.app_layout:
                 showAppDialog();
                 break;
+            case R.id.function_layout:
+                showFunctionDialog();
+                break;
+            case R.id.update_layout:
+
+                break;
+            case R.id.today_fortune_layout:
+
+                break;
         }
     }
+    //点击功能介绍显示的会话框
+    private void showFunctionDialog() {
+        final Dialog dialog = new Dialog(getContext());
+        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.me_function_dialog, null);
+        dialog.setContentView(dialogView);
+        dialog.setTitle("功能介绍");
+        updateLayout = dialogView.findViewById(R.id.update_layout);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+    }
+
     //点击关于应用显示的会话框
     private void showAppDialog() {
         final Dialog dialog = new Dialog(getContext());
