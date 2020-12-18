@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_margin="30dp"
-        android:text="5"
+        android:text="3"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/white"/>
 </RelativeLayout>
