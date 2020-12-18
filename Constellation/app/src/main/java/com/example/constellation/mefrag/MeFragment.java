@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -31,6 +32,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class MeFragment extends Fragment implements View.OnClickListener{
     CircleImageView iconIv;
     TextView nameTv;
+    LinearLayout appLayout;
+
     private Map<String, Bitmap> contentlogoImgMap;
     private List<StarBean.StarinfoBean> mDatas;
     private SharedPreferences star_pref;
@@ -62,6 +65,9 @@ public class MeFragment extends Fragment implements View.OnClickListener{
         Bitmap bitmap = contentlogoImgMap.get(logoname);
         iconIv.setImageBitmap(bitmap);
         nameTv.setText(name);
+        //初始化关于界面并设置监听
+        appLayout = view.findViewById(R.id.app_layout);
+        appLayout.setOnClickListener(this);
         return view;
     }
 
@@ -71,9 +77,24 @@ public class MeFragment extends Fragment implements View.OnClickListener{
             case R.id.mefrag_iv:
                 showDialog();
                 break;
+            case R.id.app_layout:
+                showAppDialog();
+                break;
         }
     }
+    //点击关于应用显示的会话框
+    private void showAppDialog() {
+        final Dialog dialog = new Dialog(getContext());
+        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.me_app_dialog, null);
+        dialog.setContentView(dialogView);
+        dialog.setTitle("关于应用");
+        appLayout = dialogView.findViewById(R.id.app_layout);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+    }
 
+    //点击星座Logo按钮显示会话框
     private void showDialog() {
         final Dialog dialog = new Dialog(getContext());
         View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.me_dialog, null);
