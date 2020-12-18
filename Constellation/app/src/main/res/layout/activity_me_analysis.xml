@@ -6,7 +6,7 @@
     android:background="@color/bgyellow">
     <include layout="@layout/title_layout"/>
     <ListView
-        android:id="@+id/luckanalysis_lv"
+        android:id="@+id/meanalysis_lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@null"
