@@ -1,6 +1,5 @@
 package com.example.constellation.utils;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 public class URLContent {
@@ -26,6 +25,17 @@ public class URLContent {
             e.printStackTrace();
         }
         String url = "http://web.juhe.cn:8080/constellation/getAll?consName="+name+"&type=year&key=aa6d72fd00612687271f1ed4c1c00ab2";
+        return url;
+    }
+
+    //星座每日运势接口
+    public static String getMeURL(String name){
+        try{
+            name = URLEncoder.encode(name, "UTF-8");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        String url = "http://web.juhe.cn:8080/constellation/getAll?consName="+name+"&type=today&key=aa6d72fd00612687271f1ed4c1c00ab2";
         return url;
     }
 }
