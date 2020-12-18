@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.constellation.MainActivity;
 import com.example.constellation.R;
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -22,7 +21,7 @@ public class WelcomeActivity extends AppCompatActivity {
             if (msg.what == 1){
                 count--;
                 if (count == 0){
-                    Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
+                    Intent intent = new Intent(WelcomeActivity.this, GuideActivity.class);
                     startActivity(intent);
                     finish();
                 }else {
