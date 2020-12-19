@@ -159,3 +159,13 @@ https://github.com/Keeling1720/2018118115_Android/tree/master/Homework_12
 实验报告12文档信息地址：
 
 https://github.com/Keeling1720/2018118115_Android/blob/master/Homework_12/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A12.md
+
+## pick星盘项目报告
+
+项目根目录地址：
+
+https://github.com/Keeling1720/2018118115_Android/tree/master/Constellation
+
+文档信息地址：
+
+https://github.com/Keeling1720/2018118115_Android/blob/master/Constellation/pick%E6%98%9F%E7%9B%98%E9%A1%B9%E7%9B%AE%E6%8A%A5%E5%91%8A.md
